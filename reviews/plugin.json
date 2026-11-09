@@ -2,7 +2,7 @@
     "synaptik_plugin": true,
     "name": "Reviews",
     "slug": "reviews",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Customer reviews with a manual admin-managed list, displayed as a carousel or grid via shortcode.",
     "author": "Synaptik",
     "author_url": "https://synaptikcms.com/",

@@ -1,5 +1,9 @@
 # Analytics Plugin — Changelog
 
+## [1.0.5] — 2026-11-10
+
+- **Data folder protected on fresh installs** — the plugin's data folder, including AI crawler statistics, is now locked against direct web access from first use instead of relying on a file missing from the zip.
+
 ## [1.0.4] — 2026-10-03
 
 - **Chart.js bundled** — the charts no longer load Chart.js from a CDN, so the plugin works under an admin policy that allows no external scripts and the admin no longer contacts a third party.

@@ -2,7 +2,7 @@
     "synaptik_plugin": true,
     "name": "Analytics",
     "slug": "analytics",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Lightweight server-side analytics: page views, unique visitors, referrer URLs, traffic sources, device breakdown, and country geolocation — no external scripts, no cookies, GDPR-friendly.",
     "author": "Synaptik",
     "author_url": "https://synaptikcms.com/",
