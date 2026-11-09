@@ -1,0 +1,20 @@
+{
+    "cc_banner_title": "We value your privacy",
+    "cc_banner_text": "We use cookies to enhance your browsing experience and analyze site traffic. By clicking \"Accept all\", you consent to our use of cookies. You can also customize your preferences or reject non-essential cookies.",
+    "cc_btn_accept": "Accept all",
+    "cc_btn_reject": "Reject all",
+    "cc_btn_customize": "Customize",
+    "cc_btn_save": "Save preferences",
+    "cc_btn_close": "Close",
+    "cc_modal_title": "Cookie preferences",
+    "cc_modal_intro": "Choose which categories of cookies you allow. You can withdraw your consent later at any time.",
+    "cc_settings_link_label": "Cookie settings",
+    "cc_privacy_link": "Privacy policy",
+    "cc_always_on": "Always on",
+    "cc_cat_necessary_title": "Strictly necessary",
+    "cc_cat_necessary_desc": "Required for the site to work (session, security). Cannot be disabled.",
+    "cc_cat_analytics_title": "Analytics",
+    "cc_cat_analytics_desc": "Anonymous usage statistics to help improve the site (page views, referrers).",
+    "cc_cat_marketing_title": "Marketing",
+    "cc_cat_marketing_desc": "Advertising and personalization cookies from third parties (retargeting, conversion tracking)."
+}

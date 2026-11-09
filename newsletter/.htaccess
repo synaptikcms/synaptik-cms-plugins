@@ -1,0 +1,23 @@
+# Synaptik CMS Newsletter Plugin — access control
+# Public entry points: newsletter-submit.php, newsletter-confirm.php, and
+# newsletter-unsubscribe.php. Everything else (data layer, mail, security,
+# functions, i18n, init, shortcode) must never be requested directly — they
+# are only ever include()'d by the public entry points or by init.php.
+
+<FilesMatch "^(newsletter-data-layer|newsletter-functions|newsletter-mail|newsletter-security|newsletter-shortcode|newsletter-init|newsletter-i18n)\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<FilesMatch "\.json$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>

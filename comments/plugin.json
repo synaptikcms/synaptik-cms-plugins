@@ -1,0 +1,12 @@
+{
+    "synaptik_plugin": true,
+    "name": "Comments",
+    "slug": "comments",
+    "version": "1.0.2",
+    "description": "Native comments for articles, pages, and projects, with moderation, one-level replies, and spam protection.",
+    "author": "Synaptik",
+    "author_url": "https://synaptikcms.com/",
+    "info_url": "https://synaptikcms.com/plugin-info/comments-plugin/",
+    "download_url": "https://synaptikcms.com/files/plugins/comments-plugin-synaptikcms.zip",
+    "entry": "comments-init.php"
+}

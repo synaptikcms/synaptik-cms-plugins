@@ -1,0 +1,81 @@
+/*
+ * Booking Plugin — Public Form Styles
+ * Self-contained: uses its own CSS custom properties so the widget renders
+ * consistently regardless of the active theme's stylesheet.
+ */
+.bk-booking {
+    --bk-primary: #2563eb;
+    --bk-primary-hover: #1d4ed8;
+    --bk-border: #e2e8f0;
+    --bk-bg: #ffffff;
+    --bk-bg-muted: #f8fafc;
+    --bk-text: #1e293b;
+    --bk-text-muted: #64748b;
+    --bk-danger: #dc2626;
+    --bk-radius: 8px;
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background: var(--bk-bg);
+    border: 1px solid var(--bk-border);
+    border-radius: var(--bk-radius);
+    color: var(--bk-text);
+    font-family: inherit;
+    box-sizing: border-box;
+}
+.bk-booking * { box-sizing: border-box; }
+.bk-title { margin: 0 0 1.25rem !important; font-size: 1.35rem; font-weight: 700; }
+.bk-field { margin-bottom: 1rem; }
+.bk-field label { display: block; margin-bottom: 0.35rem; font-size: 0.875rem; font-weight: 600; color: var(--bk-text); }
+.bk-field input[type="text"], .bk-field input[type="email"], .bk-field input[type="tel"], .bk-field input[type="date"], .bk-field input[type="time"], .bk-field select, .bk-field textarea { width: 100%; padding: 0.6rem 0.75rem; border: 1px solid var(--bk-border); border-radius: 6px; font-size: 0.95rem; font-family: inherit; color: var(--bk-text); background: var(--bk-bg); }
+.bk-field input:focus, .bk-field select:focus, .bk-field textarea:focus { outline: 2px solid var(--bk-primary); outline-offset: 1px; }
+.bk-field--checkbox label { display: flex; align-items: center; gap: 0.5rem; font-weight: 500; cursor: pointer; }
+.bk-field--checkbox input { width: auto; }
+.bk-callback-hint { margin: 0.35rem 0 0; font-size: 0.8rem; color: var(--bk-text-muted); }
+.bk-honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+/* Day picker (month calendar) + time-slot list for the selected day */
+.bk-picker { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 1.25rem 0; }
+@media (min-width: 640px) {
+  .bk-picker { grid-template-columns: 1.1fr 1fr; align-items: start; }
+}
+.bk-month-calendar { padding: 1rem; background: var(--bk-bg-muted); border-radius: var(--bk-radius); }
+.bk-calendar-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+.bk-calendar-nav button { background: var(--bk-bg); border: 1px solid var(--bk-border); border-radius: 6px; padding: 0.4rem 0.7rem; cursor: pointer; font-size: 0.9rem; color: var(--bk-text); }
+.bk-calendar-nav button:hover { background: var(--bk-bg-muted); }
+.bk-month-label { font-weight: 600; font-size: 0.9rem; }
+.bk-weekday-row { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.25rem; margin-bottom: 0.3rem; }
+.bk-weekday-cell { font-size: 0.7rem; font-weight: 600; text-align: center; color: var(--bk-text-muted); text-transform: uppercase; letter-spacing: 0.02em; }
+.bk-month-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.25rem; }
+.bk-month-cell { aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; border-radius: 6px; }
+.bk-month-cell--empty { background: transparent; }
+.bk-day-btn { width: 100%; height: 100%; border: 1px solid transparent; background: transparent; color: var(--bk-text); font-family: inherit; cursor: default; border-radius: 6px; }
+.bk-day-btn--disabled { color: var(--bk-text-muted); opacity: 0.4; cursor: not-allowed; }
+.bk-day-btn--available { background: var(--bk-bg); border-color: var(--bk-border); cursor: pointer; font-weight: 600; }
+.bk-day-btn--available:hover { border-color: var(--bk-primary); color: var(--bk-primary); }
+.bk-day-btn--selected, .bk-day-btn--selected:hover { background: var(--bk-primary); border-color: var(--bk-primary); color: #fff; }
+.bk-day-slots { padding: 1rem; background: var(--bk-bg-muted); border-radius: var(--bk-radius); min-height: 12rem; }
+.bk-day-slots-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem; }
+.bk-select-day-hint { color: var(--bk-text-muted); font-size: 0.875rem; margin: 0; }
+.bk-slots-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(4.5rem, 1fr)); gap: 0.4rem; }
+.bk-slot-btn { display: block; width: 100%; padding: 0.5rem 0.5rem; background: var(--bk-bg); border: 1px solid var(--bk-border); border-radius: 6px; font-size: 0.85rem; cursor: pointer; color: var(--bk-text); text-align: center; }
+.bk-slot-btn:hover { border-color: var(--bk-primary); }
+.bk-slot-btn.bk-slot-selected { background: var(--bk-primary); border-color: var(--bk-primary); color: #fff; }
+.bk-slot-btn--disabled { color: var(--bk-text-muted); background: var(--bk-bg-muted); opacity: 0.5; cursor: not-allowed; text-decoration: line-through; }
+.bk-slot-btn--disabled:hover { border-color: var(--bk-border); }
+.bk-no-slots { text-align: center; color: var(--bk-text-muted); font-size: 0.875rem; margin: 0.5rem 0 0; }
+.bk-selected-summary { padding: 0.6rem 0.8rem; background: var(--bk-bg-muted); border-radius: 6px; font-size: 0.875rem; margin-bottom: 1rem; }
+/* Submit / feedback */
+.bk-submit { width: 100%; padding: 0.75rem; background: var(--bk-primary); color: #fff; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+.bk-submit:hover { background: var(--bk-primary-hover); }
+.bk-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.bk-message { margin-top: 0.75rem; padding: 0.6rem 0.8rem; border-radius: 6px; font-size: 0.875rem; }
+.bk-message.bk-message--error { background: #fef2f2; color: var(--bk-danger); border: 1px solid #fecaca; }
+.bk-success { background: #f2fef5; color: #111; border: 1px solid #86d197; border-radius: 5px; text-align: center; padding: .6rem; }
+/* .bk-success { text-align: center; padding: 2rem 1rem; } */
+.bk-success h3 { margin: 0 0 0.5rem; padding-top: 10px; color:var(--success, #16a34a); }
+@media (max-width: 560px) {
+  .bk-slot-btn { font-size: 0.75rem; padding: 0.4rem 0.3rem; }
+  .bk-month-cell { font-size: 0.75rem; }
+}.bk-callback-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; align-items: start; }
+.bk-callback-fields[hidden] { display: none; }
+@media (max-width: 480px) { .bk-callback-fields { grid-template-columns: 1fr; } }

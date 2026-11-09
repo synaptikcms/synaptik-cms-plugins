@@ -1,0 +1,32 @@
+# Synaptik CMS Comments Plugin — access control
+# Only two PHP entry points are meant to be reached directly: the public
+# submission endpoint and the admin actions handler (already gated by the
+# core admin session + CSRF). Every other .php file at the plugin root is
+# denied direct access.
+
+<FilesMatch "\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<Files "comments-submit.php">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Allow from all
+    </IfModule>
+</Files>
+
+<FilesMatch "\.json$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>

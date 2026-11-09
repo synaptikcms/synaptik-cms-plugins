@@ -1,0 +1,12 @@
+{
+    "synaptik_plugin": true,
+    "name": "Booking",
+    "slug": "booking",
+    "version": "1.1.9",
+    "description": "Standalone appointment booking module with calendar availability, admin approval workflow, callback requests, ICS calendar invites, and history of past appointments.",
+    "author": "Synaptik",
+    "author_url": "https://synaptikcms.com/",
+    "info_url": "https://synaptikcms.com/plugin-info/booking-plugin/",
+    "entry": "booking-init.php",
+    "download_url": "https://synaptikcms.com/files/plugins/booking-plugin-synaptikcms.zip"
+}

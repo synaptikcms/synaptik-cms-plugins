@@ -1,0 +1,106 @@
+/*
+ * Newsletter Plugin — Admin Embed Styles
+ * Loaded only when the plugin's page renders inside the core admin layout.
+ * Component styles only — variables are aliases onto the core admin's own
+ * design tokens (admin-base.css) rather than a separate hardcoded palette,
+ * so this page follows the core's light/dark theme automatically instead
+ * of staying stuck in one mode.
+ */
+:root {
+    --nl-a-primary: var(--primary);
+    --nl-a-primary-hover: var(--primary-hover);
+    --nl-a-on-primary: var(--on-primary, #ffffff);
+    --nl-a-surface: var(--surface);
+    --nl-a-field: var(--field-bg);
+    --nl-a-surface-2: var(--surface-2);
+    --nl-a-border: var(--border);
+    --nl-a-text: var(--text);
+    --nl-a-text-muted: var(--text-muted);
+    --nl-a-success: var(--success, #16a34a);
+    --nl-a-success-bg: var(--success-soft);
+    --nl-a-danger: var(--danger);
+    --nl-a-danger-bg: var(--danger-soft);
+    --nl-a-info: var(--info);
+    --nl-a-info-bg: var(--info-soft);
+    --nl-a-info-text: var(--info-text);
+}
+/* ─── editor overrides ───────────────────────────────────────────────────── */
+.editor-toolbar { top: 0 !important; }
+/* ─── Stat cards ───────────────────────────────────────────────────────── */
+.nl-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.nl-stat-card { background: var(--nl-a-surface); border: 1px solid var(--nl-a-border); border-radius: 8px; padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.25rem; }
+.nl-stat-value { font-size: 1.75rem; font-weight: 700; color: var(--nl-a-text); }
+.nl-stat-value--small { font-size: 1.1rem; }
+.nl-stat-label { font-size: 0.8rem; color: var(--nl-a-text-muted); }
+/* ─── Panels ───────────────────────────────────────────────────────────── */
+.nl-panel { background: var(--nl-a-surface); border: 1px solid var(--nl-a-border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; transition: 0.3s background ease-in-out; }
+.nl-panel h2 { font-size: 1.05rem; margin: 0 0 0.5rem; color: var(--nl-a-text); }
+.nl-panel-hint { color: var(--nl-a-text-muted); font-size: 0.875rem; margin: 0 0 1rem; }
+.nl-panel--editor { padding: 0; overflow: hidden; }
+/* ─── Sub-navigation (core .tabs component) ────────────────────────────── */
+.nl-subnav { margin-bottom: 1.25rem; }
+/* Pill badge on the "Subscribers" tab counting unconfirmed sign-ups — same * shape/behavior as the core's own data-badge component (admin-sidebar.css): * neutral on an inactive tab, translucent white once the tab is active. * Mirrors the Booking plugin's identical .bk-tab-badge. */
+.nl-tab-badge { display: inline-block; margin-left: 0.35rem; padding: 0.05rem 0.5rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; line-height: 1.4; background: var(--nl-a-surface); color: var(--nl-a-text-muted); }
+.tab.active .nl-tab-badge { background: rgba(255, 255, 255, 0.25); color: var(--nl-a-on-primary); }
+/* ─── Buttons ──────────────────────────────────────────────────────────── */
+.nl-btn { padding: 0.55rem 1.1rem; border-radius: 6px; border: 1px solid var(--nl-a-border); background: var(--nl-a-surface); color: var(--nl-a-text); font-size: 0.875rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: background .18s ease, color .18s ease, border-color .18s ease; }
+.nl-btn:hover { background: var(--nl-a-surface-2); border-color: var(--nl-a-border); color: var(--nl-a-text); }
+.nl-btn--primary { background: var(--nl-a-primary); border-color: var(--nl-a-primary); color: var(--nl-a-on-primary); }
+.nl-btn--primary:hover { background: var(--nl-a-primary-hover); border-color: var(--nl-a-primary-hover); color: var(--nl-a-on-primary); }
+.nl-btn--outline { background: var(--nl-a-surface); color: var(--nl-a-primary); border-color: var(--nl-a-primary); }
+.nl-btn--outline:hover { background: var(--nl-a-surface-2); border-color: var(--nl-a-primary); color: var(--nl-a-primary); }
+.nl-btn--delete { color: var(--nl-a-danger); }
+.nl-btn--delete:hover { background: var(--nl-a-danger-bg); border-color: var(--nl-a-danger); color: var(--nl-a-danger); }
+.nl-btn--sm { padding: 0.35rem 0.75rem; font-size: 0.8rem; }
+.nl-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+/* ─── Digest / send progress ───────────────────────────────────────────── */
+.nl-digest-progress { margin-top: 1rem; }
+.nl-progress-bar { height: 8px; background: var(--nl-a-surface-2); border-radius: 4px; overflow: hidden; }
+.nl-progress-fill { height: 100%; background: var(--nl-a-primary); width: 0%; transition: width 0.2s ease; }
+.nl-progress-label { font-size: 0.8rem; color: var(--nl-a-text-muted); margin: 0.4rem 0 0; }
+.nl-digest-result { margin-top: 1rem; font-size: 0.875rem; padding: 0.6rem 0.9rem; border-radius: 6px; }
+.nl-digest-result--success { background: var(--alert-success-bg); color: var(--nl-a-success); }
+.nl-digest-result--error { background: var(--alert-danger-bg); color: var(--nl-a-danger); }
+/* ─── Tables (subscribers, history) ────────────────────────────────────── */
+.nl-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.nl-table th { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 2px solid var(--nl-a-border); color: var(--nl-a-text-muted); font-weight: 600; }
+.nl-table td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--nl-a-border); }
+.nl-table tbody tr { transition: background-color .18s ease; }
+.nl-table tbody tr:hover { background-color: var(--nl-a-surface-2); }
+.nl-table-actions form { margin: 0; }
+.nl-empty { color: var(--nl-a-text-muted); font-size: 0.9rem; }
+/* ─── Badges (history "kind" column) ───────────────────────────────────── */
+.nl-badge { display: inline-block; padding: 0.15rem 0.55rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
+.nl-badge--digest { background: var(--nl-a-info-bg); color: var(--nl-a-info); }
+.nl-badge--custom { background: var(--primary-soft); color: var(--nl-a-primary); }
+/* ─── Settings / composer forms ────────────────────────────────────────── */
+.nl-field { margin-bottom: 1rem; }
+.nl-field label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.3rem; color: var(--nl-a-text); }
+.nl-field input[type="text"], .nl-field input[type="email"], .nl-field input[type="password"], .nl-field input[type="number"] { width: 100%; max-width: 400px; padding: 0.5rem 0.7rem; border: 1px solid var(--nl-a-border); border-radius: 6px; font-size: 0.9rem; color: var(--nl-a-text); background: var(--nl-a-field); }
+.nl-panel .nl-field input[type="text"]#nl-subject { max-width: 100%; font-size: 1rem; padding: 0.65rem 0.8rem; }
+.nl-form-actions { margin-top: 1rem; }
+/* ─── Checkboxes / radios (smtp.php) ────────────────────────────────── */
+.nl-field--checkbox label { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.88rem; cursor: pointer; }
+/* Custom-drawn checkbox (filled square, white checkmark) matching the * core admin's .checkbox-label component (admin-base.css) and the same * pattern used in the Booking/Form Builder/Redirects plugins. */
+.nl-field--checkbox input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 18px; height: 18px; margin: 0; padding: 0; flex-shrink: 0; border: 2px solid var(--border-strong, var(--nl-a-border)); border-radius: 4px; background-color: var(--nl-a-field); position: relative; cursor: pointer; transition: background-color .15s ease, border-color .15s ease; }
+.nl-field--checkbox input[type="checkbox"]:checked { background-color: var(--nl-a-primary); border-color: var(--nl-a-primary); }
+.nl-field--checkbox input[type="checkbox"]:checked::after { content: ''; position: absolute; left: 5px; top: 1px; width: 5px; height: 10px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.nl-field--checkbox input[type="checkbox"]:focus-visible { outline: none; box-shadow: var(--focus-ring, 0 0 0 3px rgba(79, 167, 92, .3)); }
+.nl-radio-option { display: flex; align-items: center; gap: 0.5rem; font-weight: 500; cursor: pointer; margin-bottom: 0.4rem; }
+.nl-radio-option input { width: auto; }
+/* ─── Digest template token bar (digest-template.php) ─────────────────── */
+.nl-token-bar { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.75rem; }
+.nl-token-btn { padding: 0.25rem 0.6rem; border-radius: 999px; border: 1px solid var(--nl-a-border); background: var(--nl-a-surface-2); color: var(--nl-a-primary); font-size: 0.78rem; font-family: ui-monospace, 'SF Mono', Menlo, monospace; cursor: pointer; transition: background .15s ease, border-color .15s ease; }
+.nl-token-btn:hover { background: var(--nl-a-surface); border-color: var(--nl-a-primary); }
+/* ─── Dashboard widget (admin_dashboard hook) ─────────────────────────────── */
+.nl-dash-widget-header { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: 1.1rem; padding-bottom: 14px; border-bottom: 1px solid var(--nl-a-border); }
+.nl-dash-widget-header h3 { display: flex; align-items: center; gap: .5rem; margin: 0; padding: 0; border: 0; }
+.nl-dash-widget-header svg { color: var(--nl-a-primary); flex-shrink: 0; }
+.nl-dash-more { font-size: .8rem; color: var(--nl-a-primary); text-decoration: none; white-space: nowrap; }
+.nl-dash-more:hover { color: var(--nl-a-primary-hover); }
+.nl-dash-kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; }
+.nl-dash-kpi { background: var(--nl-a-surface-2); border: 1px solid var(--nl-a-border); border-radius: 10px; padding: 1rem 1.15rem; }
+.nl-dash-kpi-value { font-size: 1.65rem; font-weight: 700; color: var(--nl-a-text); line-height: 1.1; }
+.nl-dash-kpi-label { font-size: .78rem; font-weight: 500; color: var(--nl-a-text-muted); margin-top: .3rem; }
+.nl-shortcode { display: inline-block; padding: 0.4rem 0.7rem; border: 1px solid var(--nl-a-border); border-radius: 6px; background: var(--nl-a-field); color: var(--nl-a-text); font-size: 0.9rem; user-select: all; }
+.nl-field input[type="color"] { width: 3rem; height: 2.2rem; padding: 0.1rem; border: 1px solid var(--nl-a-border); border-radius: 6px; background: var(--nl-a-field); cursor: pointer; }

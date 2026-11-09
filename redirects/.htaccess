@@ -1,0 +1,33 @@
+# Synaptik CMS Redirects Plugin — access control
+# Unlike the Newsletter plugin, this plugin has no public-facing PHP entry
+# point at all — the redirect check runs via a function call from index.php,
+# and every admin action goes through admin/actions.php (already gated by
+# the core admin session + CSRF). So every .php file at the plugin root is
+# denied direct access; only admin/actions.php needs to remain reachable.
+
+<FilesMatch "\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<Files "actions.php">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Allow from all
+    </IfModule>
+</Files>
+
+<FilesMatch "\.json$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>

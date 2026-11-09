@@ -1,0 +1,22 @@
+# Synaptik CMS Reviews Plugin — access control
+# There is no public entry point in this plugin's root (all writes go
+# through the admin-only admin/actions.php) — every internal PHP file is
+# only ever include()'d, never requested directly.
+
+<FilesMatch "^(reviews-data-layer|reviews-functions|reviews-security|reviews-shortcode|reviews-init|reviews-i18n)\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<FilesMatch "\.json$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>

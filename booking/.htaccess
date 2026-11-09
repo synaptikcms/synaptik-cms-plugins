@@ -1,0 +1,23 @@
+# Synaptik CMS Booking Plugin — access control
+# Public entry points: booking.php (AJAX API), booking-submit.php (form POST),
+# and booking-cancel.php (client one-click cancellation link).
+# Everything else (data layer, mail, ics, security, includes) must never be
+# requested directly — they are only ever include()'d by the entry points above.
+
+<FilesMatch "^(booking-data-layer|booking-functions|booking-ics|booking-mail|booking-security|booking-shortcode|booking-init|booking-i18n)\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<FilesMatch "\.json$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>

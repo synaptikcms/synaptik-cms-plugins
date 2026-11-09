@@ -1,0 +1,20 @@
+{
+    "cc_banner_title": "Nous respectons votre vie privée",
+    "cc_banner_text": "Nous utilisons des cookies pour améliorer votre navigation et analyser le trafic du site. En cliquant sur « Tout accepter », vous consentez à leur utilisation. Vous pouvez aussi personnaliser vos préférences ou refuser les cookies non essentiels.",
+    "cc_btn_accept": "Tout accepter",
+    "cc_btn_reject": "Tout refuser",
+    "cc_btn_customize": "Personnaliser",
+    "cc_btn_save": "Enregistrer mes préférences",
+    "cc_btn_close": "Fermer",
+    "cc_modal_title": "Préférences de cookies",
+    "cc_modal_intro": "Choisissez les catégories de cookies que vous autorisez. Vous pourrez retirer votre consentement à tout moment.",
+    "cc_settings_link_label": "Préférences cookies",
+    "cc_privacy_link": "Politique de confidentialité",
+    "cc_always_on": "Toujours actif",
+    "cc_cat_necessary_title": "Strictement nécessaires",
+    "cc_cat_necessary_desc": "Nécessaires au fonctionnement du site (session, sécurité). Ne peuvent pas être désactivés.",
+    "cc_cat_analytics_title": "Statistiques",
+    "cc_cat_analytics_desc": "Statistiques d'usage anonymes pour améliorer le site (pages vues, sources de trafic).",
+    "cc_cat_marketing_title": "Marketing",
+    "cc_cat_marketing_desc": "Cookies publicitaires et de personnalisation de tiers (retargeting, suivi de conversion)."
+}

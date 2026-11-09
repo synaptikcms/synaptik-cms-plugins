@@ -1,0 +1,16 @@
+# Overrides the plugin root's deny-all-PHP rule for this one file — the
+# root only grants comments-submit.php, so without this, actions.php would
+# also be denied (Apache authz sections from different .htaccess levels
+# combine, so a subdirectory needs its own explicit grant to reach a file
+# the parent denies — see plugins/redirects/.htaccess for the same pattern
+# applied at the root instead). Scoped to actions.php specifically —
+# admin-page.php stays covered by the parent's blanket deny.
+
+<Files "actions.php">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Allow from all
+    </IfModule>
+</Files>

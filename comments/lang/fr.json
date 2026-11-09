@@ -1,0 +1,16 @@
+{
+    "cm_title_one": "1 commentaire",
+    "cm_title_many": "{count} commentaires",
+    "cm_no_comments": "Aucun commentaire pour le moment. Soyez le premier à partager votre avis.",
+    "cm_reply": "Répondre",
+    "cm_cancel_reply": "Annuler",
+    "cm_field_name": "Nom",
+    "cm_field_email": "Email",
+    "cm_field_content": "Commentaire",
+    "cm_submit": "Publier le commentaire",
+    "cm_sending": "Envoi…",
+    "cm_error_generic": "Une erreur est survenue. Veuillez réessayer.",
+    "cm_error_validation": "Merci de remplir tous les champs.",
+    "cm_error_rate": "Trop de commentaires envoyés. Veuillez réessayer plus tard.",
+    "cm_pending_notice": "Merci — votre commentaire est en attente de modération."
+}

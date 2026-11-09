@@ -1,0 +1,12 @@
+# Synaptik CMS Maintenance Plugin — admin access control
+# Public entry point: actions.php (standalone POST-only settings save).
+# admin-page.php is only ever include()'d by the core plugin loader.
+
+<FilesMatch "^(?!(actions)\.php$)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>

@@ -1,0 +1,90 @@
+/*
+ * Cookie Consent Plugin — Frontend Styles
+ * Loaded on every front-end page while the plugin is enabled. Values in
+ * --cc-bg / --cc-text / --cc-accent are set inline in a tiny <style>
+ * block by cc_render_frontend_assets() using the admin-configured colors.
+ * Everything else is static CSS.
+ */
+.cc-root {
+    --cc-bg: #ffffff;
+    --cc-text: #1a1a1a;
+    --cc-accent: #3ea34e;
+    --cc-border: rgba(0, 0, 0, 0.12);
+    --cc-muted: rgba(0, 0, 0, 0.6);
+    --cc-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--cc-text);
+    line-height: 1.5;
+}
+/* The HTML `hidden` attribute must beat the layout rules below * (.cc-banner, .cc-modal use `display: flex`, which by default has higher * specificity than the browser's UA style for [hidden]). !important is * needed to force these to hide when JS toggles their .hidden property. */
+.cc-root[hidden], .cc-banner[hidden], .cc-modal[hidden], .cc-modal-backdrop[hidden] { display: none !important; }
+/* ─── Banner (bottom bar) ─────────────────────────────────────────────── */
+.cc-banner { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 2147483000; background: var(--cc-bg); border: 1px solid var(--cc-border); border-radius: 12px; box-shadow: var(--cc-shadow); padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1.5rem; max-width: 1200px; margin: 0 auto; animation: cc-slide-up .25s ease-out both; }
+/* Center-dialog variant */
+.cc-root.cc-pos-center .cc-banner { bottom: auto; top: 50%; left: 50%; right: auto; transform: translate(-50%, -50%); max-width: 520px; flex-direction: column; align-items: stretch; animation: cc-fade-in .25s ease-out both; }
+.cc-root.cc-pos-center::before { content: ''; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); z-index: 2147482999; animation: cc-fade-in .25s ease-out both; }
+.cc-banner-body { flex: 1; min-width: 0; }
+.cc-banner-title { font-size: 1rem; font-weight: 600; margin: 0 0 0.35rem; color: var(--cc-text); }
+.cc-banner-text { font-size: 0.875rem; margin: 0; color: var(--cc-text); }
+.cc-banner-actions { display: flex; gap: 0.5rem; flex-shrink: 0; flex-wrap: wrap; }
+/* ─── Buttons ─────────────────────────────────────────────────────────── */
+.cc-btn { padding: 0.55rem 1.1rem; border-radius: 8px; border: 1px solid rgba(0, 0, 0, 0.18); background: transparent; color: var(--cc-text); font-size: 0.875rem; font-weight: 500; font-family: inherit; cursor: pointer; line-height: 1.2; transition: background .15s ease, border-color .15s ease, color .15s ease, transform .05s ease; }
+.cc-btn:hover { background: rgba(0, 0, 0, 0.07); border-color: rgba(0, 0, 0, 0.35); }
+.cc-btn:active { transform: scale(0.98); }
+.cc-btn--primary { background: var(--cc-accent); border-color: var(--cc-accent); color: #fff; }
+.cc-btn--primary:hover { filter: brightness(0.92); background: var(--cc-accent); border-color: var(--cc-accent); }
+.cc-btn--outline { background: transparent; border-color: rgba(0, 0, 0, 0.18); color: var(--cc-text); }
+/* Red outline for reject buttons — visually distinct from the neutral * "Customize" outline (so the visitor can spot Reject at a glance), but * kept as an outline rather than a filled red button to avoid reading as * a destructive/danger action (delete-style semantics). Equal visual * weight to the green Accept all, as CNIL guidelines require. */
+.cc-btn--danger { background: transparent; color: #dc2626; border-color: #dc2626; }
+.cc-btn--danger:hover { background: rgba(220, 38, 38, 0.08); border-color: #b91c1c; color: #b91c1c; }
+/* ─── Privacy link ────────────────────────────────────────────────────── */
+.cc-privacy-link { color: var(--cc-accent); text-decoration: underline; font-weight: 500; margin-left: 0.25rem; }
+.cc-privacy-link:hover { text-decoration: none; }
+/* ─── Modal ───────────────────────────────────────────────────────────── */
+.cc-modal-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.55); z-index: 2147483100; animation: cc-fade-in .2s ease-out both; }
+.cc-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2147483101; background: var(--cc-bg); border-radius: 12px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4); width: min(560px, calc(100vw - 2rem)); max-height: min(85vh, 700px); display: flex; flex-direction: column; animation: cc-fade-in .2s ease-out both; }
+.cc-modal-head { padding: 1.25rem 1.5rem 0.75rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--cc-border); }
+.cc-modal-title { font-size: 1.05rem; font-weight: 600; margin: 0; color: var(--cc-text); }
+.cc-modal-close { background: transparent; border: none; color: var(--cc-muted); font-size: 1.6rem; line-height: 1; cursor: pointer; padding: 0.2rem 0.5rem; border-radius: 4px; }
+.cc-modal-close:hover { color: var(--cc-text); background: rgba(0, 0, 0, 0.06); }
+.cc-modal-body { padding: 1rem 1.5rem; overflow-y: auto; flex: 1; }
+.cc-modal-intro { font-size: 0.9rem; margin: 0 0 1.25rem; color: var(--cc-text); }
+.cc-modal-actions { padding: 1rem 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; border-top: 1px solid var(--cc-border); background: rgba(0, 0, 0, 0.02); border-radius: 0 0 12px 12px; }
+/* ─── Category row inside modal ───────────────────────────────────────── */
+.cc-cat { padding: 1rem 0; border-bottom: 1px solid var(--cc-border); }
+.cc-cat:last-child { border-bottom: none; padding-bottom: 0; }
+.cc-cat:first-child { padding-top: 0; }
+.cc-cat-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.35rem; }
+.cc-cat-title { font-size: 0.95rem; font-weight: 600; color: var(--cc-text); }
+.cc-cat-always { font-size: 0.75rem; color: var(--cc-muted); font-style: italic; }
+.cc-cat-desc { font-size: 0.825rem; margin: 0; color: var(--cc-muted); line-height: 1.5; }
+/* ─── Toggle switch (categories) ──────────────────────────────────────── */
+.cc-switch { position: relative; display: inline-block; width: 42px; height: 24px; flex-shrink: 0; cursor: pointer; }
+.cc-switch input { opacity: 0; width: 0; height: 0; position: absolute; }
+.cc-switch-slider { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.2); border-radius: 999px; transition: background .2s ease; }
+.cc-switch-slider::before { content: ''; position: absolute; left: 3px; top: 3px; width: 18px; height: 18px; background: #ffffff; border-radius: 50%; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25); transition: transform .2s ease; }
+.cc-switch input:checked + .cc-switch-slider { background: var(--cc-accent); }
+.cc-switch input:checked + .cc-switch-slider::before { transform: translateX(18px); }
+.cc-switch input:focus-visible + .cc-switch-slider { box-shadow: 0 0 0 3px rgba(62, 163, 78, 0.3); }
+/* ─── Animations ──────────────────────────────────────────────────────── */
+@keyframes cc-slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes cc-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+/* Respect users who explicitly ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  .cc-banner, .cc-modal, .cc-modal-backdrop, .cc-root.cc-pos-center::before { animation: none; }
+}
+/* ─── Mobile ──────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .cc-banner { flex-direction: column; align-items: stretch; padding: 1rem; left: 0.5rem; right: 0.5rem; bottom: 0.5rem; }
+  .cc-banner-actions { flex-direction: column; }
+  .cc-banner-actions .cc-btn { width: 100%; }
+  .cc-modal-actions { flex-direction: column; }
+  .cc-modal-actions .cc-btn { width: 100%; }
+}

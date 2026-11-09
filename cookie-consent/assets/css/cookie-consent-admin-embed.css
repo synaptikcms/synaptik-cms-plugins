@@ -1,0 +1,77 @@
+/*
+ * Cookie Consent Plugin — Admin Embed Styles
+ * Loaded only when the plugin's page renders inside the core admin layout.
+ * Variables are aliases onto the core admin's own design tokens
+ * (admin-base.css) so this page follows the core's light/dark theme
+ * automatically instead of staying stuck in one mode.
+ */
+:root {
+    --cc-a-primary: var(--primary);
+    --cc-a-primary-hover: var(--primary-hover);
+    --cc-a-on-primary: var(--on-primary, #ffffff);
+    --cc-a-surface: var(--surface);
+    --cc-a-field: var(--field-bg);
+    --cc-a-surface-2: var(--surface-2);
+    --cc-a-border: var(--border);
+    --cc-a-text: var(--text);
+    --cc-a-text-muted: var(--text-muted);
+    --cc-a-danger: var(--danger);
+    --cc-a-danger-bg: var(--danger-soft);
+    --cc-a-success: #16a34a;
+    --cc-a-success-bg: var(--success-soft);
+    --cc-a-warning: var(--warning);
+    --cc-a-warning-bg: var(--warning-soft);
+}
+/* ─── Top-level on/off toggle (matches the Maintenance plugin's style) ─── */
+/* Panel wrapper for the toggle — slightly tighter padding since it hosts * a single control rather than a full section. */
+.cc-panel--toggle { padding: 1.25rem 1.5rem; }
+/* Compound selector "label.cc-toggle" raises specificity so this rule * always wins over any generic label { display: block } coming later in * the cascade (same defensive pattern as the Maintenance plugin uses). */
+label.cc-toggle { display: flex; align-items: center; gap: 0.65rem; cursor: pointer; width: fit-content; position: relative; margin-bottom: 0; }
+.cc-toggle input { position: absolute; top: 0; left: 0; opacity: 0; width: 1px; height: 1px; }
+.cc-toggle-track { position: relative; width: 42px; height: 24px; flex-shrink: 0; background: var(--cc-a-border); border-radius: 999px; transition: background 0.15s ease; }
+.cc-toggle-thumb { position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; background: var(--on-primary, #fff); border-radius: 50%; box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.25)); transition: transform 0.15s ease; }
+.cc-toggle input:checked ~ .cc-toggle-track { background: var(--cc-a-primary); }
+.cc-toggle input:checked ~ .cc-toggle-track .cc-toggle-thumb { transform: translateX(18px); }
+.cc-toggle-label { font-size: 0.95rem; font-weight: 600; color: var(--cc-a-text); }
+/* Status pill under the toggle. Semantics are inverted vs. the Maintenance * plugin: for cookie consent, ON is the good/compliant state (success/green) * and OFF is the potentially risky state (warning/orange) — the opposite of * maintenance mode where ON means the site is down. */
+.cc-status-text { margin: 0.5rem 0 0; font-size: 0.82rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 6px; display: inline-block; }
+.cc-status-text.is-on { background: var(--cc-a-success-bg); color: var(--cc-a-success); }
+.cc-status-text.is-off { background: var(--cc-a-warning-bg); color: var(--cc-a-warning); }
+/* ─── Panels ───────────────────────────────────────────────────────────── */
+.cc-panel { background: var(--cc-a-surface-2); border: 1px solid var(--cc-a-border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+.cc-panel h2 { font-size: 1.05rem; margin: 0 0 0.5rem; color: var(--cc-a-text); }
+.cc-panel-hint { color: var(--cc-a-text-muted); font-size: 0.875rem; margin: 0 0 1rem; max-width: 640px; }
+.cc-panel--actions { display: flex; justify-content: flex-end; }
+.cc-panel--dev pre { background: var(--cc-a-surface-2); border: 1px solid var(--cc-a-border); border-radius: 6px; padding: 0.9rem 1rem; font-size: 0.8rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--cc-a-text); overflow-x: auto; margin: 0.6rem 0; white-space: pre; }
+/* ─── Fields ───────────────────────────────────────────────────────────── */
+.cc-field { margin-bottom: 1rem; }
+.cc-field label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.3rem; color: var(--cc-a-text); }
+.cc-field input[type="text"], .cc-field input[type="number"], .cc-field select { width: 100%; max-width: 480px; padding: 0.5rem 0.7rem; border: 1px solid var(--cc-a-border); border-radius: 6px; font-size: 0.9rem; font-family: inherit; color: var(--cc-a-text); background: var(--cc-a-field); }
+.cc-field select { appearance: none; -webkit-appearance: none; padding-right: 2.2rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23889' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: calc(100% - 10px) center; }
+.cc-field--inline select, .cc-field--inline input[type="number"] { max-width: 260px; }
+.cc-field-hint { color: var(--cc-a-text-muted); font-size: 0.8rem; margin: 0.4rem 0 0; max-width: 480px; }
+/* Color pickers side by side */
+.cc-color-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.cc-field--color input[type="color"] { width: 60px; height: 40px; padding: 0; border: 1px solid var(--cc-a-border); border-radius: 6px; cursor: pointer; background: transparent; }
+/* ─── Checkbox (matches the core admin's .checkbox-label style) ───────── */
+.cc-checkbox-label { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.9rem; color: var(--cc-a-text); cursor: pointer; margin-bottom: 1rem; }
+.cc-checkbox-label input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 18px; height: 18px; margin: 1px 0 0; padding: 0; flex-shrink: 0; border: 2px solid var(--border-strong, var(--cc-a-border)); border-radius: 4px; background-color: var(--cc-a-field); position: relative; cursor: pointer; transition: background-color .15s ease, border-color .15s ease; }
+.cc-checkbox-label input[type="checkbox"]:checked { background-color: var(--cc-a-primary); border-color: var(--cc-a-primary); }
+.cc-checkbox-label input[type="checkbox"]:checked::after { content: ''; position: absolute; left: 5px; top: 1px; width: 5px; height: 10px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.cc-checkbox-label input[type="checkbox"]:focus-visible { outline: none; box-shadow: var(--focus-ring, 0 0 0 3px rgba(79, 167, 92, .3)); }
+/* ─── Category cards ──────────────────────────────────────────────────── */
+.cc-cat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+.cc-cat-item { display: flex; gap: 0.75rem; align-items: flex-start; padding: 1rem; border: 1px solid var(--cc-a-border); border-radius: 8px; background: var(--cc-a-surface-2); cursor: pointer; transition: border-color .15s ease, background-color .15s ease; }
+.cc-cat-item:hover { border-color: var(--cc-a-primary); }
+.cc-cat-item input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 18px; height: 18px; margin: 2px 0 0; padding: 0; flex-shrink: 0; border: 2px solid var(--border-strong, var(--cc-a-border)); border-radius: 4px; background-color: var(--cc-a-field); position: relative; cursor: pointer; transition: background-color .15s ease, border-color .15s ease; }
+.cc-cat-item input[type="checkbox"]:checked { background-color: var(--cc-a-primary); border-color: var(--cc-a-primary); }
+.cc-cat-item input[type="checkbox"]:checked::after { content: ''; position: absolute; left: 5px; top: 1px; width: 5px; height: 10px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.cc-cat-item strong { display: block; font-size: 0.95rem; color: var(--cc-a-text); margin-bottom: 0.2rem; }
+.cc-cat-item p { margin: 0; font-size: 0.8rem; color: var(--cc-a-text-muted); line-height: 1.4; }
+/* ─── Buttons ──────────────────────────────────────────────────────────── */
+.cc-btn { padding: 0.55rem 1.1rem; border-radius: 6px; border: 1px solid var(--cc-a-border); background: var(--cc-a-surface); color: var(--cc-a-text); font-size: 0.875rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: background .18s ease, color .18s ease, border-color .18s ease; }
+.cc-btn:hover { background: var(--cc-a-surface-2); }
+.cc-btn--primary { background: var(--cc-a-primary); border-color: var(--cc-a-primary); color: var(--cc-a-on-primary); }
+.cc-btn--primary:hover { background: var(--cc-a-primary-hover); border-color: var(--cc-a-primary-hover); color: var(--cc-a-on-primary); }
+/* ─── Code block ──────────────────────────────────────────────────────── */
+.cc-code { background: var(--cc-a-surface-2); border: 1px solid var(--cc-a-border); border-radius: 6px; padding: 0.9rem 1rem; font-size: 0.8rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--cc-a-text); overflow-x: auto; margin: 0.6rem 0; white-space: pre; }

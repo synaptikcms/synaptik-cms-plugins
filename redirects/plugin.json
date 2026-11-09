@@ -1,0 +1,12 @@
+{
+    "synaptik_plugin": true,
+    "name": "Redirects",
+    "slug": "redirects",
+    "version": "1.0.2",
+    "description": "Manual 301/302 URL redirects, plus an optional 404-to-home fallback.",
+    "author": "Synaptik",
+    "author_url": "https://synaptikcms.com/",
+    "info_url": "https://synaptikcms.com/plugin-info/redirects-plugin/",
+    "download_url": "https://synaptikcms.com/files/plugins/redirects-plugin-synaptikcms.zip",
+    "entry": "redirects-init.php"
+}

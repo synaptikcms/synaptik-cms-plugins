@@ -1,0 +1,107 @@
+/*
+ * Comments Plugin — Admin Embed Styles
+ * Loaded only when the plugin's page renders inside the core admin layout.
+ * Component styles only — variables are aliases onto the core admin's own
+ * design tokens (admin-base.css) rather than a separate hardcoded palette,
+ * so this page follows the core's light/dark theme automatically.
+ */
+:root {
+    --cm-a-primary: var(--primary);
+    --cm-a-primary-hover: var(--primary-hover);
+    --cm-a-on-primary: var(--on-primary, #ffffff);
+    --cm-a-surface: var(--surface);
+    --cm-a-field: var(--field-bg);
+    --cm-a-surface-2: var(--surface-2);
+    --cm-a-border: var(--border);
+    --cm-a-text: var(--text);
+    --cm-a-text-muted: var(--text-muted);
+    --cm-a-success: var(--success, #16a34a);
+    --cm-a-success-bg: var(--success-soft);
+    --cm-a-danger: var(--danger);
+    --cm-a-danger-bg: var(--danger-soft);
+    --cm-a-info: var(--info);
+    --cm-a-info-bg: var(--info-soft);
+}
+/* ─── Toolbar & filters ────────────────────────────────────────────────── */
+/* ─── Shortcode hint banner ────────────────────────────────────────── */
+.cm-a-shortcode-hint { display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem; padding: 0.85rem 1.1rem; margin-bottom: 1.25rem; background: var(--alert-info-bg); border: 1px solid var(--cm-a-info); border-radius: 8px; font-size: 0.85rem; color: var(--cm-a-text); }
+.cm-a-shortcode-copy { background: var(--cm-a-surface); border: 1px solid var(--cm-a-border); border-radius: 5px; padding: 0.2rem 0.55rem; font-size: 0.82rem; cursor: pointer; user-select: all; color: var(--cm-a-primary); transition: background .15s ease; }
+.cm-a-shortcode-copy:hover { background: var(--cm-a-surface-2); }
+/* ─── Sub-navigation (core .tabs component) ────────────────────────────── */
+.cm-a-subnav { margin-bottom: 1.25rem; }
+/* Settings sits in the same strip as the status filters but is a different * kind of destination, so it is pushed to the far end rather than reading * as a fifth filter. Collapses back into the flow once the bar scrolls * horizontally on narrow screens. */
+.cm-a-subnav-settings { margin-left: auto; }
+@media (max-width: 640px) { .cm-a-subnav-settings { margin-left: 0; } }
+/* Pill badge on the "Pending" tab — same shape/behavior as the core's own * data-badge component (admin-sidebar.css): neutral on an inactive tab, * solid primary-color fill once the tab is active. */
+.cm-a-tab-badge { display: inline-block; margin-left: 0.35rem; padding: 0.05rem 0.5rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; line-height: 1.4; background: var(--cm-a-surface); color: var(--cm-a-text-muted); }
+.tab.active .cm-a-tab-badge { background: rgba(255, 255, 255, 0.25); color: var(--cm-a-on-primary); }
+/* ─── Panels ───────────────────────────────────────────────────────────── */
+/* ─── Search bar ─────────────────────────────────────────────── */
+.cm-a-search { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.cm-a-search input[type="search"] { flex: 1 1 280px; padding: 0.5rem 0.75rem; border: 1px solid var(--cm-a-border); border-radius: 6px; font-size: 0.85rem; color: var(--cm-a-text); background: var(--cm-a-field); }
+/* ─── Bulk action bar ────────────────────────────────────────── */
+.cm-a-bulk-bar { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.9rem; padding-bottom: 0.9rem; border-bottom: 1px solid var(--cm-a-border); }
+.cm-a-bulk-count { font-size: 0.82rem; color: var(--cm-a-text-muted); margin-right: 0.4rem; }
+.cm-a-th-check { width: 2rem; }
+/* ─── Pagination ───────────────────────────────────────────── */
+.cm-a-pagination { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.25rem; }
+.cm-a-pagination-status { font-size: 0.82rem; color: var(--cm-a-text-muted); }
+.cm-a-panel { background: var(--cm-a-surface); border: 1px solid var(--cm-a-border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+.cm-a-panel h2 { font-size: 1.05rem; margin: 0 0 0.5rem; color: var(--cm-a-text); }
+.cm-a-panel-hint { color: var(--cm-a-text-muted); font-size: 0.875rem; margin: 0 0 1rem; max-width: 640px; }
+.cm-a-empty { color: var(--cm-a-text-muted); font-size: 0.9rem; }
+/* ─── Table ────────────────────────────────────────────────────────────── */
+.cm-a-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.cm-a-table th { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 2px solid var(--cm-a-border); color: var(--cm-a-text-muted); font-weight: 600; }
+.cm-a-table td { padding: 0.7rem 0.75rem; border-bottom: 1px solid var(--cm-a-border); vertical-align: top; }
+.cm-a-table tbody tr:hover { background-color: var(--cm-a-surface-2); }
+.cm-a-author { font-weight: 600; color: var(--cm-a-text); }
+.cm-a-email { font-size: 0.78rem; color: var(--cm-a-text-muted); }
+.cm-a-content { max-width: 360px; color: var(--cm-a-text); line-height: 1.4; }
+.cm-a-slug { font-size: 0.78rem; color: var(--cm-a-text-muted); margin-top: 0.2rem; }
+.cm-a-date { font-size: 0.8rem; color: var(--cm-a-text-muted); white-space: nowrap; }
+.cm-a-actions { display: flex; flex-direction: column; gap: 0.35rem; min-width: 100px; }
+.cm-a-actions form { margin: 0; }
+.cm-a-actions form button { width: 100%; }
+/* ─── Badges ───────────────────────────────────────────────────────────── */
+.cm-a-badge { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 999px; font-size: 0.7rem; font-weight: 600; background: var(--cm-a-info-bg); color: var(--cm-a-info); text-transform: capitalize; }
+.cm-a-badge--reply { background: var(--cm-a-surface-2); color: var(--cm-a-text-muted); margin-left: 0.4rem; }
+/* ─── Buttons ──────────────────────────────────────────────────────────── */
+.cm-a-btn { padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid var(--cm-a-border); background: var(--cm-a-surface); color: var(--cm-a-text); font-size: 0.85rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: background .18s ease, color .18s ease, border-color .18s ease; }
+.cm-a-btn:hover { background: var(--cm-a-surface-2); }
+.cm-a-btn--primary { background: var(--cm-a-primary); border-color: var(--cm-a-primary); color: var(--cm-a-on-primary); }
+.cm-a-btn--primary:hover { background: var(--cm-a-primary-hover); border-color: var(--cm-a-primary-hover); }
+.cm-a-btn--outline { color: var(--cm-a-primary); border-color: var(--cm-a-primary); }
+.cm-a-btn--delete { color: var(--cm-a-danger); }
+.cm-a-btn--delete:hover { background: var(--cm-a-danger-bg); border-color: var(--cm-a-danger); }
+.cm-a-btn--sm { padding: 0.35rem 0.7rem; font-size: 0.78rem; }
+/* ─── Forms (settings page) ───────────────────────────────────────────── */
+.cm-a-radio-group, .cm-a-checkbox-group { display: flex; flex-direction: column; gap: 0.9rem; }
+.cm-a-radio-label, .cm-a-checkbox-label { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.9rem; color: var(--cm-a-text); cursor: pointer; }
+.cm-a-radio-hint { display: block; font-size: 0.8rem; color: var(--cm-a-text-muted); font-weight: 400; margin-top: 0.15rem; }
+.cm-a-textarea { width: 100%; max-width: 480px; padding: 0.6rem 0.8rem; border: 1px solid var(--cm-a-border); border-radius: 6px; font-size: 0.85rem; font-family: monospace; color: var(--cm-a-text); background: var(--cm-a-field); resize: vertical; }
+.cm-a-form-actions { margin-top: 0.5rem; }
+/* Custom-drawn checkbox/radio matching the core admin's .checkbox-label * component (admin-base.css) — same rotated-L checkmark technique, same * green fill — just sized up slightly (20x20) for this plugin's forms and * the moderation table's selection column. */
+.cm-a-radio-label input[type="radio"], .cm-a-checkbox-label input[type="checkbox"], .cm-a-row-check, #cm-a-select-all { appearance: none; -webkit-appearance: none; width: 20px; height: 20px; margin: 0; padding: 0; flex-shrink: 0; border: 2px solid var(--border-strong, var(--cm-a-border)); border-radius: 5px; background-color: var(--cm-a-field); position: relative; cursor: pointer; transition: background-color .15s ease, border-color .15s ease; }
+.cm-a-radio-label input[type="radio"] { border-radius: 50%; }
+.cm-a-radio-label input[type="radio"]:checked, .cm-a-checkbox-label input[type="checkbox"]:checked, .cm-a-row-check:checked, #cm-a-select-all:checked { background-color: var(--cm-a-primary); border-color: var(--cm-a-primary); }
+.cm-a-checkbox-label input[type="checkbox"]:checked::after, .cm-a-row-check:checked::after, #cm-a-select-all:checked::after { content: ''; position: absolute; left: 5px; top: -1px; width: 8px; height: 14px; border: solid #fff; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
+.cm-a-radio-label input[type="radio"]:checked::after { content: ''; position: absolute; top: 50%; left: 50%; width: 8px; height: 8px; background: #fff; border-radius: 50%; transform: translate(-50%, -50%); }
+.cm-a-radio-label input[type="radio"]:focus-visible, .cm-a-checkbox-label input[type="checkbox"]:focus-visible, .cm-a-row-check:focus-visible, #cm-a-select-all:focus-visible { outline: none; box-shadow: var(--focus-ring, 0 0 0 3px rgba(79, 167, 92, .3)); }
+
+/* ─── Dashboard widget (admin_dashboard hook) ─────────────────────────────── */
+.cm-dash-widget-header { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: 1.1rem; padding-bottom: 14px; border-bottom: 1px solid var(--cm-a-border); }
+.cm-dash-widget-header h3 { display: flex; align-items: center; gap: .5rem; margin: 0; padding: 0; border: 0; }
+.cm-dash-widget-header svg { color: var(--cm-a-primary); flex-shrink: 0; }
+.cm-dash-more { font-size: .8rem; color: var(--cm-a-primary); text-decoration: none; white-space: nowrap; }
+.cm-dash-more:hover { color: var(--cm-a-primary-hover); }
+.cm-dash-kpi { background: var(--cm-a-surface-2); border: 1px solid var(--cm-a-border); border-radius: 10px; padding: 1rem 1.15rem; margin-bottom: 1.1rem; }
+.cm-dash-kpi-value { font-size: 1.65rem; font-weight: 700; color: var(--cm-a-text); line-height: 1.1; }
+.cm-dash-kpi-label { font-size: .78rem; font-weight: 500; color: var(--cm-a-text-muted); margin-top: .3rem; }
+.cm-dash-list { display: flex; flex-direction: column; gap: .35rem; }
+.cm-dash-row { display: block; padding: .55rem .6rem; border-radius: 8px; text-decoration: none; color: inherit; transition: background-color .15s ease; }
+.cm-dash-row:hover { background: var(--cm-a-surface-2); }
+.cm-dash-row-author { font-size: .88rem; font-weight: 600; color: var(--cm-a-text); }
+.cm-dash-row-slug { font-size: .78rem; font-weight: 400; color: var(--cm-a-text-muted); }
+.cm-dash-row-excerpt { font-size: .82rem; color: var(--cm-a-text-muted); margin-top: .1rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cm-dash-empty { font-size: .85rem; color: var(--cm-a-text-muted); text-align: center; padding: 1.5rem 0; margin: 0; }

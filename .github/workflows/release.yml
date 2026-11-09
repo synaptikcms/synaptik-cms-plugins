@@ -1,0 +1,48 @@
+name: Release plugins
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  MANIFEST: plugin.json
+  SUFFIX: plugin
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create a release for every new version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          for manifest in */"$MANIFEST"; do
+            [ -f "$manifest" ] || continue
+            slug="$(dirname "$manifest")"
+            version="$(jq -r '.version // empty' "$manifest")"
+            if ! [[ "$version" =~ ^[0-9]+(\.[0-9]+)*$ ]]; then
+              echo "::warning::$slug: invalid or missing version, skipped"
+              continue
+            fi
+            tag="${slug}-v${version}"
+            if gh release view "$tag" >/dev/null 2>&1; then
+              continue
+            fi
+            zipname="${slug}-${SUFFIX}-synaptikcms.zip"
+            rm -f "$zipname"
+            zip -r -q "$zipname" "$slug" \
+              -x "$slug/data/*" "$slug/private/*" "*/.DS_Store" "*/._*" "*/__MACOSX/*" "*/.git*" "*/Thumbs.db"
+            name="$(jq -r '.name // empty' "$manifest")"
+            gh release create "$tag" "$zipname" \
+              --target "$GITHUB_SHA" \
+              --title "${name:-$slug} $version" \
+              --notes "$(jq -r '.description // empty' "$manifest")"
+            echo "Released $tag"
+          done

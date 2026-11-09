@@ -1,0 +1,31 @@
+# Synaptik CMS Cookie Consent Plugin — access control
+# Same pattern as the Redirects plugin: this plugin has no public-facing
+# PHP entry point at all — every admin action goes through admin/actions.php
+# (already gated by the core admin session + CSRF).
+
+<FilesMatch "\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<Files "actions.php">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Allow from all
+    </IfModule>
+</Files>
+
+<FilesMatch "\.json$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>

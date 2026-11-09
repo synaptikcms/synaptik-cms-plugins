@@ -1,0 +1,12 @@
+{
+    "synaptik_plugin": true,
+    "name": "Reviews",
+    "slug": "reviews",
+    "version": "1.0.4",
+    "description": "Customer reviews with a manual admin-managed list, displayed as a carousel or grid via shortcode.",
+    "author": "Synaptik",
+    "author_url": "https://synaptikcms.com/",
+    "info_url": "https://synaptikcms.com/plugin-info/reviews-plugin/",
+    "download_url": "https://synaptikcms.com/files/plugins/reviews-plugin-synaptikcms.zip",
+    "entry": "reviews-init.php"
+}

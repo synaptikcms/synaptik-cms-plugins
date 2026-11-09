@@ -1,0 +1,26 @@
+# Synaptik CMS Reviews Plugin — admin access control
+# Public entry point: actions.php (standalone POST-only approve/reject/save
+# actions). admin-page.php and bootstrap.php are only ever include()'d.
+
+<FilesMatch "^(?!(actions)\.php$)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Session cookie hardening is set in code (admin/bootstrap.php calls
+# session_set_cookie_params() before session_start()) — that works under
+# both mod_php and PHP-FPM. php_value directives here would only apply
+# under mod_php and be silently ignored under PHP-FPM (OVH's runtime),
+# so they're deliberately not duplicated here.
+
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "DENY"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "no-referrer"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none';"
+</IfModule>

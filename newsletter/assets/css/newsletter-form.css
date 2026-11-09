@@ -1,0 +1,61 @@
+/*
+ * Newsletter Plugin — Front-end Signup Form Styles
+ * Loaded only on pages containing [newsletter_signup]. Minimal footprint,
+ * variables namespaced (--nl-*) to avoid colliding with theme CSS.
+ */
+.nl-signup {
+    --nl-primary: #2563eb;
+    --nl-primary-text: #fff;
+    --nl-border: color-mix(in srgb, currentColor 28%, transparent);
+    --nl-success: #16a34a;
+    --nl-danger: #dc2626;
+    max-width: 640px;
+}
+.nl-signup .nl-title { font-size: 1.05rem; font-weight: 600; margin: 0 0 0.75rem; color: inherit; }
+.nl-signup .nl-field { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: stretch; }
+.nl-signup .nl-field input[type="text"],
+.nl-signup .nl-field input[type="email"] {
+    flex: 1 1 160px;
+    min-width: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--nl-border);
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+.nl-signup .nl-field input[type="email"] { flex-basis: 200px; }
+.nl-signup .nl-field input::placeholder { color: inherit; opacity: 0.55; }
+.nl-signup .nl-field input:focus { outline: 2px solid var(--nl-primary); outline-offset: 1px; }
+.nl-signup .nl-submit {
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0.6rem 1.2rem;
+    background: var(--nl-primary);
+    color: var(--nl-primary-text);
+    border: none;
+    border-radius: 6px;
+    font: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.nl-signup .nl-submit:hover { filter: brightness(0.9); }
+.nl-signup .nl-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+@media (max-width: 600px) {
+    .nl-signup .nl-field { flex-direction: column; }
+    .nl-signup .nl-field input[type="text"],
+    .nl-signup .nl-field input[type="email"] { flex: 0 0 auto; width: 100%; }
+    .nl-signup .nl-submit { width: 100%; }
+}
+.nl-message { margin-top: 0.6rem; font-size: 0.875rem; }
+.nl-message--success { color: var(--nl-success); }
+.nl-message--error { color: var(--nl-danger); }
+.nl-honeypot, .nl-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }

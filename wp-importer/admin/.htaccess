@@ -1,0 +1,22 @@
+# Synaptik CMS WP Importer Plugin — admin access control
+# No public entry point in this directory at all — the import form and its
+# POST handler both live inside wp_importer_render_admin_page(), reached
+# only through admin/index.php's plugin_page router (already gated by the
+# core admin session there). admin-page.php itself is only ever include()'d.
+
+<FilesMatch "\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "DENY"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "no-referrer"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none';"
+</IfModule>

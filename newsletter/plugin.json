@@ -1,0 +1,12 @@
+{
+    "synaptik_plugin": true,
+    "name": "Newsletter",
+    "slug": "newsletter",
+    "version": "1.0.7",
+    "description": "Email newsletter signup with double opt-in and a manual article digest sender.",
+    "author": "Synaptik",
+    "author_url": "https://synaptikcms.com/",
+    "info_url": "https://synaptikcms.com/plugin-info/newsletter-plugin/",
+    "download_url": "https://synaptikcms.com/files/plugins/newsletter-plugin-synaptikcms.zip",
+    "entry": "newsletter-init.php"
+}

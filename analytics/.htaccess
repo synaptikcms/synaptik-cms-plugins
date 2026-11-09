@@ -1,0 +1,26 @@
+# Synaptik CMS Analytics Plugin — access control
+# No public entry point at this level — every file here (data layer,
+# functions, geoip, i18n, init, tracker) is only ever include()'d by the
+# core plugin loader or by files under admin/ (protected by their own
+# .htaccess). Named explicitly rather than a blanket "*.php" — a blanket
+# FilesMatch here would also apply to admin/actions.php (Apache's authz
+# sections cascade into subdirectories and combine with AND, so admin/'s
+# own exemption for actions.php can't override a deny matched up here).
+
+<FilesMatch "^(analytics-data-layer|analytics-functions|analytics-geoip|analytics-i18n|analytics-init|analytics-tracker)\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<FilesMatch "\.json$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>

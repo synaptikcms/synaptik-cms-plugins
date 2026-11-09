@@ -1,0 +1,9 @@
+{
+    "fb_submit": "Envoyer",
+    "fb_sending": "Envoi en cours…",
+    "fb_default_success": "Merci, votre message a bien été envoyé.",
+    "fb_select_placeholder": "Sélectionner…",
+    "fb_error_generic": "Une erreur est survenue. Merci de réessayer.",
+    "fb_error_validation": "Merci de remplir tous les champs obligatoires.",
+    "fb_error_rate": "Trop de soumissions. Merci de réessayer plus tard."
+}

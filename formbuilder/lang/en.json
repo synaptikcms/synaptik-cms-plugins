@@ -1,0 +1,9 @@
+{
+    "fb_submit": "Send",
+    "fb_sending": "Sending…",
+    "fb_default_success": "Thank you, your submission has been received.",
+    "fb_select_placeholder": "Select…",
+    "fb_error_generic": "An error occurred. Please try again.",
+    "fb_error_validation": "Please fill in all required fields.",
+    "fb_error_rate": "Too many submissions. Please try again later."
+}

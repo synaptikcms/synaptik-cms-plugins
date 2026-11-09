@@ -1,0 +1,76 @@
+/*
+ * Reviews Plugin — Admin Embed Styles
+ * Loaded only when the plugin's page renders inside the core admin layout.
+ * Component styles only — variables are aliases onto the core admin's own
+ * design tokens (admin-base.css) rather than a separate hardcoded palette,
+ * so this page follows the core's light/dark theme automatically instead
+ * of staying stuck in one mode.
+ */
+:root {
+    --rv-a-primary: var(--primary);
+    --rv-a-primary-hover: var(--primary-hover);
+    --rv-a-on-primary: var(--on-primary, #ffffff);
+    --rv-a-surface: var(--surface);
+    --rv-a-field: var(--field-bg);
+    --rv-a-surface-2: var(--surface-2);
+    --rv-a-border: var(--border);
+    --rv-a-text: var(--text);
+    --rv-a-text-muted: var(--text-muted);
+    --rv-a-success: var(--success, #16a34a);
+    --rv-a-success-bg: var(--success-soft);
+    --rv-a-danger: var(--danger);
+    --rv-a-danger-bg: var(--danger-soft);
+    --rv-a-warning: var(--warning, #d97706);
+    --rv-a-warning-bg: var(--warning-soft, rgba(217, 119, 6, .12));
+}
+/* ─── Stat cards ───────────────────────────────────────────────────────── */
+.rv-a-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.rv-a-stat-card { background: var(--rv-a-surface); border: 1px solid var(--rv-a-border); border-radius: 8px; padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.25rem; }
+.rv-a-stat-value { font-size: 1.75rem; font-weight: 700; color: var(--rv-a-text); }
+.rv-a-stat-label { font-size: 0.8rem; color: var(--rv-a-text-muted); }
+/* ─── Panels ───────────────────────────────────────────────────────────── */
+.rv-a-panel { background: var(--rv-a-surface); border: 1px solid var(--rv-a-border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; transition: 0.3s background ease-in-out; }
+.rv-a-panel h2 { font-size: 1.05rem; margin: 0 0 0.5rem; color: var(--rv-a-text); }
+.rv-a-panel-hint { color: var(--rv-a-text-muted); font-size: 0.875rem; margin: 0 0 1rem; }
+/* ─── Buttons ──────────────────────────────────────────────────────────── */
+.rv-a-btn { padding: 0.55rem 1.1rem; border-radius: 6px; border: 1px solid var(--rv-a-border); background: var(--rv-a-surface); color: var(--rv-a-text); font-size: 0.875rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: background .18s ease, color .18s ease, border-color .18s ease; }
+.rv-a-btn:hover { background: var(--rv-a-surface-2); }
+.rv-a-btn--primary { background: var(--rv-a-primary); border-color: var(--rv-a-primary); color: var(--rv-a-on-primary); }
+.rv-a-btn--primary:hover { background: var(--rv-a-primary-hover); border-color: var(--rv-a-primary-hover); color: var(--rv-a-on-primary); }
+.rv-a-btn--delete { color: var(--rv-a-danger); }
+.rv-a-btn--delete:hover { background: var(--rv-a-danger-bg); border-color: var(--rv-a-danger); color: var(--rv-a-danger); }
+.rv-a-btn--sm { padding: 0.35rem 0.75rem; font-size: 0.8rem; }
+/* ─── Forms ────────────────────────────────────────────────────────────── */
+.rv-a-form-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.rv-a-field { margin-bottom: 1rem; flex: 1 1 220px; }
+.rv-a-field--narrow { flex: 0 1 160px; }
+.rv-a-field label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.3rem; color: var(--rv-a-text); }
+.rv-a-field input[type="text"], .rv-a-field input[type="date"], .rv-a-field input[type="number"], .rv-a-field input[type="file"], .rv-a-field select, .rv-a-field textarea { width: 100%; padding: 0.5rem 0.7rem; border: 1px solid var(--rv-a-border); border-radius: 6px; font-size: 0.9rem; color: var(--rv-a-text); background: var(--rv-a-field); font-family: inherit; }
+.rv-a-field input[type="file"] { border: 2px dashed var(--border-strong); cursor: pointer; }
+.rv-a-field input[type="file"]:hover { border-color: var(--primary); background-color: var(--primary-soft); }
+/* The shorthand `background` above resets background-image too, wiping * out the dropdown chevron admin-base.css sets on every <select> — * reapplied here rather than switching the rule above to background-color, * to avoid touching a property already relied on elsewhere in this file. */
+.rv-a-field select { appearance: none; -webkit-appearance: none; padding-right: 2.2rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23889' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: calc(100% - 10px) center; }
+.rv-a-field textarea { resize: vertical; }
+.rv-a-hint { font-size: 0.78rem; color: var(--rv-a-text-muted); margin: 0.3rem 0 0; }
+.rv-a-form-actions { margin-top: 0.5rem; display: flex; gap: 0.6rem; }
+/* ─── Review list (drag to reorder) ────────────────────────────────────── */
+.rv-a-list { list-style: none; margin: 0; padding: 0; }
+.rv-a-row { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 0.5rem; border-bottom: 1px solid var(--rv-a-border); cursor: grab; }
+.rv-a-row:last-child { border-bottom: none; }
+.rv-a-row.rv-a-row--dragging { opacity: 0.5; }
+.rv-a-drag-handle { color: var(--rv-a-text-muted); padding-top: 0.15rem; user-select: none; }
+.rv-a-row-body { flex: 1; min-width: 0; }
+.rv-a-row-header { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.rv-a-row-stars { color: var(--rv-a-warning); font-size: 0.85rem; letter-spacing: 1px; }
+.rv-a-row-date { font-size: 0.78rem; color: var(--rv-a-text-muted); margin-left: auto; }
+.rv-a-row-text { margin: 0.3rem 0 0; font-size: 0.85rem; color: var(--rv-a-text-muted); }
+.rv-a-row-actions { display: flex; gap: 0.4rem; flex-shrink: 0; }
+.rv-a-row-actions form { margin: 0; }
+.rv-a-empty { color: var(--rv-a-text-muted); font-size: 0.9rem; }
+/* ─── Badges ───────────────────────────────────────────────────────────── */
+.rv-a-badge { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 999px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
+.rv-a-badge--published { background: var(--rv-a-success-bg); color: var(--rv-a-success); }
+.rv-a-badge--draft { background: var(--rv-a-surface-2); color: var(--rv-a-text-muted); }
+/* ─── Shortcode reference ──────────────────────────────────────────────── */
+.rv-a-code-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.rv-a-code-row code { background: var(--rv-a-surface-2); border: 1px solid var(--rv-a-border); border-radius: 6px; padding: 0.4rem 0.7rem; font-size: 0.82rem; }

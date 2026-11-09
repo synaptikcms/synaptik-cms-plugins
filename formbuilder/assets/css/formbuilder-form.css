@@ -1,0 +1,28 @@
+/**
+ * Form Builder — Front-end form styles.
+ * Minimal, theme-agnostic defaults using relative units so the widget
+ * inherits the active theme's font stack and color scheme wherever
+ * possible, while staying usable unstyled.
+ */
+ .fb-form { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.1rem; }
+.fb-field { display: flex; flex-direction: column; gap: 0.35rem; }
+.fb-fields-inline { display: flex; gap: 1.1rem; }
+.fb-fields-inline > .fb-field { flex: 1 1 0; min-width: 0; }
+@media (max-width: 520px) { .fb-fields-inline { flex-direction: column; } }
+.fb-separator--line { width: 100%; border: none; border-top: 1px solid #d1d5db; margin: 0; }
+.fb-separator--space { width: 100%; height: 0.75rem; }
+.fb-field label { font-weight: 600; font-size: 0.95rem; }
+.fb-field input[type="text"], .fb-field input[type="email"], .fb-field input[type="tel"], .fb-field input[type="number"], .fb-field select, .fb-field textarea { padding: 0.6rem 0.75rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 1rem; font-family: inherit; background: #fff; color: #1e293b; }
+.fb-field input:focus, .fb-field select:focus, .fb-field textarea:focus { outline: 2px solid #2563eb; outline-offset: 1px; }
+.fb-select-wrap { position: relative; display: block; }
+.fb-select-wrap select { width: 100%; padding-right: 2.2rem; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
+.fb-select-wrap::after { content: ""; position: absolute; top: 50%; right: 0.75rem; width: 12px; height: 12px; pointer-events: none; transform: translateY(-50%);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23889' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") no-repeat center / contain; }
+.fb-field--checkbox label { display: flex; align-items: center; gap: 0.5rem; font-weight: 400; }
+.fb-honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.fb-submit { align-self: flex-start; padding: 0.7rem 1.6rem; border: none; border-radius: 6px; background: #2563eb; color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; }
+.fb-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.fb-submit:hover:not(:disabled) { background: #1d4ed8; }
+.fb-message { padding: 0.65rem 0.9rem; border-radius: 6px; font-size: 0.9rem; }
+.fb-message--error { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+.fb-success { padding: 0.9rem 1.1rem; border-radius: 6px; background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }

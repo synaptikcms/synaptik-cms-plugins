@@ -1,0 +1,12 @@
+{
+    "synaptik_plugin": true,
+    "name": "WordPress Importer",
+    "slug": "wp-importer",
+    "version": "1.0.1",
+    "description": "Import posts, pages, categories, tags and SEO metadata from a WordPress XML export (WXR) file.",
+    "author": "Synaptik",
+    "author_url": "https://synaptikcms.com/",
+    "info_url": "https://synaptikcms.com/plugin-info/wordpress-importer-plugin/",
+    "download_url": "https://synaptikcms.com/files/plugins/wp-importer-plugin-synaptikcms.zip",
+    "entry": "wp-importer-init.php"
+}

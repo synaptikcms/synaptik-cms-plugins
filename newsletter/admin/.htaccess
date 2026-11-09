@@ -1,0 +1,12 @@
+# Synaptik CMS Newsletter Plugin — admin access control
+# Public entry point: actions.php (standalone POST-only save/send actions).
+# admin-page.php and bootstrap.php are only ever include()'d.
+
+<FilesMatch "^(?!(actions)\.php$)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>

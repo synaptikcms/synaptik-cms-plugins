@@ -1,0 +1,81 @@
+/*
+ * Form Builder Plugin — Admin Embed Styles
+ * Loaded only when the plugin's page renders inside the core admin layout.
+ * Component styles only — variables alias onto the core admin's own design
+ * tokens (admin-base.css) so this page follows the core's light/dark theme
+ * automatically, matching the approach used by the Booking plugin.
+ */
+:root {
+    --fb-a-primary: var(--primary);
+    --fb-a-primary-hover: var(--primary-hover);
+    --fb-a-on-primary: var(--on-primary, #ffffff);
+    --fb-a-surface: var(--surface);
+    --fb-a-field: var(--field-bg);
+    --fb-a-surface-2: var(--surface-2);
+    --fb-a-border: var(--border);
+    --fb-a-text: var(--text);
+    --fb-a-text-muted: var(--text-muted);
+    --fb-a-danger: var(--danger);
+    --fb-a-danger-bg: var(--danger-soft);
+}
+.fb-subnav { margin-bottom: 1.25rem; }
+.fb-list-header { display: flex; justify-content: flex-end; margin-bottom: 1rem; }
+.fb-empty { color: var(--fb-a-text-muted); padding: 2rem 0; text-align: center; }
+/* ─── Table ──────────────────────────────────────────────────────────── */
+.fb-table { width: 100%; border-collapse: collapse; }
+.fb-table th, .fb-table td { text-align: left; padding: 0.65rem 0.75rem; border-bottom: 1px solid var(--fb-a-border); font-size: 0.9rem; }
+.fb-table th { color: var(--fb-a-text-muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.02em; }
+.fb-shortcode-tag { background: var(--fb-a-surface-2); border: 1px solid var(--fb-a-border); border-radius: 4px; padding: 0.15rem 0.45rem; font-size: 0.82rem; }
+/* .fb-row-actions { display: flex; gap: 0.5rem; justify-content: flex-end; } */
+.fb-inline-form { display: inline; }
+/* ─── Buttons ────────────────────────────────────────────────────────── */
+.fb-btn { display: inline-flex; align-items: center; padding: 0.45rem 0.9rem; border-radius: 6px; border: 1px solid var(--fb-a-border); background: var(--fb-a-surface); color: var(--fb-a-text); font-size: 0.85rem; font-weight: 600; text-decoration: none; cursor: pointer; margin: 5px; }
+.fb-btn:hover { background: var(--fb-a-surface-2); }
+.fb-btn--primary { background: var(--fb-a-primary); border-color: var(--fb-a-primary); color: var(--fb-a-on-primary); }
+.fb-btn--primary:hover { background: var(--fb-a-primary-hover); }
+.fb-btn--delete { color: var(--fb-a-danger); border-color: var(--fb-a-danger); background: var(--fb-a-danger-bg); }
+/* ─── Settings / editor forms ────────────────────────────────────────── */
+.fb-settings-section { background: var(--fb-a-surface); border: 1px solid var(--fb-a-border); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; transition: 0.3s background ease-in-out; }
+.fb-settings-section h2 { margin-top: 0; font-size: 1rem; }
+.fb-field { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+.fb-field label { font-weight: 600; font-size: 0.88rem; }
+.fb-field input[type="text"], .fb-field input[type="email"], .fb-field input[type="url"] { padding: 0.55rem 0.7rem; border: 1px solid var(--fb-a-border); border-radius: 6px; background: var(--fb-a-field); color: var(--fb-a-text); font-size: 0.92rem; }
+.fb-field-help { margin: 0; font-size: 0.78rem; color: var(--fb-a-text-muted); }
+.fb-field--checkbox label { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.88rem; cursor: pointer; }
+/* Custom-drawn checkbox (filled square, white checkmark) matching the * core admin's .checkbox-label component (admin-base.css), rather than * the previous accent-color-only native rendering, which looks different * across browsers (Firefox/Safari render accent-color less rounded/filled * than Chrome) and didn't match the rest of the admin. */
+.fb-field--checkbox input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 18px; height: 18px; margin: 0; padding: 0; flex-shrink: 0; border: 2px solid var(--border-strong, var(--fb-a-border)); border-radius: 4px; background-color: var(--fb-a-field); position: relative; cursor: pointer; transition: background-color .15s ease, border-color .15s ease; }
+.fb-field--checkbox input[type="checkbox"]:checked { background-color: var(--fb-a-primary); border-color: var(--fb-a-primary); }
+.fb-field--checkbox input[type="checkbox"]:checked::after { content: ''; position: absolute; left: 5px; top: 1px; width: 5px; height: 10px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.fb-field--checkbox input[type="checkbox"]:focus-visible { outline: none; box-shadow: var(--focus-ring, 0 0 0 3px rgba(79, 167, 92, .3)); }
+/* Required-column toggle (field editor table) — same custom rendering, * smaller footprint since it sits alone in a narrow table cell with no * adjacent label text. */
+.fb-required-toggle { display: flex; justify-content: center; }
+.fb-required-toggle input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; margin: 0; padding: 0; border: 2px solid var(--border-strong, var(--fb-a-border)); border-radius: 4px; background-color: var(--fb-a-field); position: relative; cursor: pointer; transition: background-color .15s ease, border-color .15s ease; }
+.fb-required-toggle input[type="checkbox"]:disabled { opacity: 0.45; cursor: not-allowed; }
+.fb-required-toggle input[type="checkbox"]:checked { background-color: var(--fb-a-primary); border-color: var(--fb-a-primary); }
+.fb-required-toggle input[type="checkbox"]:checked::after { content: ''; position: absolute; left: 4px; top: 0; width: 5px; height: 9px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.fb-required-toggle input[type="checkbox"]:focus-visible { outline: none; box-shadow: var(--focus-ring, 0 0 0 3px rgba(79, 167, 92, .3)); }
+.fb-form-actions { display: flex; gap: 0.6rem; }
+/* ─── Field editor rows ──────────────────────────────────────────────── */
+.fb-fields-header, .fb-field-row { display: grid; grid-template-columns: 1.6rem 1.4fr 1.1fr 1fr 0.9fr 0.5fr auto; gap: 0.6rem; align-items: center; padding: 0.5rem 0; }
+.fb-cell-invisible { visibility: hidden; pointer-events: none; }
+.fb-fields-header { font-size: 0.78rem; color: var(--fb-a-text-muted); text-transform: uppercase; letter-spacing: 0.02em; border-bottom: 1px solid var(--fb-a-border); }
+.fb-field-row { border-bottom: 1px solid var(--fb-a-border); }
+.fb-field-row.fb-field-row--dragging { opacity: 0.4; }
+.fb-field-row.fb-field-row--drop-before { box-shadow: 0 -2px 0 0 var(--fb-a-primary); }
+.fb-field-row.fb-field-row--drop-after { box-shadow: 0 2px 0 0 var(--fb-a-primary); }
+.fb-drag-handle { display: flex; align-items: center; justify-content: center; color: var(--fb-a-text-muted); cursor: grab; padding: 0.25rem; }
+.fb-drag-handle:active { cursor: grabbing; }
+.fb-field-row input[type="text"], .fb-field-row select { padding: 0.5rem 0.6rem; border: 1px solid var(--fb-a-border); border-radius: 6px; background: var(--fb-a-field); color: var(--fb-a-text); font-size: 0.88rem; width: 100%; }
+/* The shorthand `background` above resets background-image too, wiping * out the dropdown chevron admin-base.css sets on every <select> — * reapplied here rather than switching the rule above to background-color, * to avoid touching a property already relied on elsewhere in this file. */
+.fb-field-row select { appearance: none; -webkit-appearance: none; padding-right: 2.2rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23889' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: calc(100% - 10px) center; }
+.fb-field-options { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 0.3rem; padding: 0 0 10px 40px; }
+.fb-field-options[hidden] { display: none; }
+.fb-field-options label { font-size: 0.78rem; color: var(--fb-a-text-muted); }
+.fb-field-options textarea { padding: 0.5rem 0.6rem; border: 1px solid var(--fb-a-border); border-radius: 6px; background: var(--fb-a-field); color: var(--fb-a-text); font-size: 0.88rem; font-family: inherit; max-width: 400px; }
+#fb-add-field { margin-top: 0.75rem; }
+/* ─── Filter bar (submissions view) ─────────────────────────────────── */
+.fb-filter-form { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.25rem; }
+.fb-filter-form select { padding: 0.5rem 0.7rem; border: 1px solid var(--fb-a-border); border-radius: 6px; background: var(--fb-a-surface-2); color: var(--fb-a-text); }
+/* Same background-image reset as .fb-field-row select above. */
+.fb-filter-form select { appearance: none; -webkit-appearance: none; padding-right: 2.2rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23889' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: calc(100% - 10px) center; }
+.message.success { background: var(--success-soft, #f0fdf4); color: var(--success, #16a34a); border: 1px solid var(--success, #16a34a); border-radius: 6px; padding: 0.6rem 0.9rem; margin-bottom: 1rem; }

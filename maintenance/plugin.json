@@ -1,0 +1,12 @@
+{
+    "synaptik_plugin": true,
+    "name": "Maintenance Mode",
+    "slug": "maintenance",
+    "version": "1.0.4",
+    "description": "Show a maintenance page to visitors while you keep working on the site as a logged-in admin.",
+    "author": "Synaptik",
+    "author_url": "https://synaptikcms.com/",
+    "info_url": "https://synaptikcms.com/plugin-info/maintenance-plugin/",
+    "download_url": "https://synaptikcms.com/files/plugins/maintenance-plugin-synaptikcms.zip",
+    "entry": "maintenance-init.php"
+}

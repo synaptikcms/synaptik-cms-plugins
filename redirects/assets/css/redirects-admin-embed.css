@@ -1,0 +1,69 @@
+/*
+ * Redirects Plugin — Admin Embed Styles
+ * Loaded only when the plugin's page renders inside the core admin layout.
+ * Component styles only — variables are aliases onto the core admin's own
+ * design tokens (admin-base.css) rather than a separate hardcoded palette,
+ * so this page follows the core's light/dark theme automatically instead
+ * of staying stuck in one mode.
+ */
+:root {
+    --rd-a-primary: var(--primary);
+    --rd-a-primary-hover: var(--primary-hover);
+    --rd-a-on-primary: var(--on-primary, #ffffff);
+    --rd-a-surface: var(--surface);
+    --rd-a-field: var(--field-bg);
+    --rd-a-surface-2: var(--surface-2);
+    --rd-a-border: var(--border);
+    --rd-a-text: var(--text);
+    --rd-a-text-muted: var(--text-muted);
+    --rd-a-success: var(--success, #16a34a);
+    --rd-a-success-bg: var(--success-soft);
+    --rd-a-danger: var(--danger);
+    --rd-a-danger-bg: var(--danger-soft);
+    --rd-a-info: var(--info);
+    --rd-a-info-bg: var(--info-soft);
+    --rd-a-warning-bg: var(--warning-soft);
+    --rd-a-warning-text: var(--warning-text);
+}
+/* ─── Panels ───────────────────────────────────────────────────────────── */
+.rd-panel { background: var(--rd-a-surface); border: 1px solid var(--rd-a-border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+.rd-panel h2 { font-size: 1.05rem; margin: 0 0 0.5rem; color: var(--rd-a-text); }
+.rd-panel-hint { color: var(--rd-a-text-muted); font-size: 0.875rem; margin: 0 0 1rem; max-width: 640px; }
+/* ─── Forms ────────────────────────────────────────────────────────────── */
+.rd-field { margin-bottom: 1rem; }
+.rd-field label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.3rem; color: var(--rd-a-text); }
+.rd-field input[type="text"], .rd-field select { width: 100%; max-width: 480px; padding: 0.5rem 0.7rem; border: 1px solid var(--rd-a-border); border-radius: 6px; font-size: 0.9rem; font-family: inherit; color: var(--rd-a-text); background: var(--rd-a-field); }
+/* The shorthand `background` above resets background-image too, wiping * out the dropdown chevron admin-base.css sets on every <select> — * reapplied here rather than switching the rule above to background-color, * to avoid touching a property already relied on elsewhere in this file. */
+.rd-field select { appearance: none; -webkit-appearance: none; padding-right: 2.2rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23889' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: calc(100% - 10px) center; }
+.rd-field--inline select { max-width: 240px; }
+.rd-form-actions { margin-top: 1rem; display: flex; gap: 0.6rem; }
+.rd-checkbox-label { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--rd-a-text); cursor: pointer; }
+/* Custom-drawn checkbox (filled square, white checkmark) matching the * core admin's .checkbox-label component (admin-base.css). */
+.rd-checkbox-label input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 18px; height: 18px; margin: 0; padding: 0; flex-shrink: 0; border: 2px solid var(--border-strong, var(--rd-a-border)); border-radius: 4px; background-color: var(--rd-a-field); position: relative; cursor: pointer; transition: background-color .15s ease, border-color .15s ease; }
+.rd-checkbox-label input[type="checkbox"]:checked { background-color: var(--rd-a-primary); border-color: var(--rd-a-primary); }
+.rd-checkbox-label input[type="checkbox"]:checked::after { content: ''; position: absolute; left: 5px; top: 1px; width: 5px; height: 10px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.rd-checkbox-label input[type="checkbox"]:focus-visible { outline: none; box-shadow: var(--focus-ring, 0 0 0 3px rgba(79, 167, 92, .3)); }
+/* ─── Buttons ──────────────────────────────────────────────────────────── */
+.rd-btn { padding: 0.55rem 1.1rem; border-radius: 6px; border: 1px solid var(--rd-a-border); background: var(--rd-a-surface); color: var(--rd-a-text); font-size: 0.875rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: background .18s ease, color .18s ease, border-color .18s ease; }
+.rd-btn:hover { background: var(--rd-a-surface-2); border-color: var(--rd-a-border); color: var(--rd-a-text); }
+.rd-btn--primary { background: var(--rd-a-primary); border-color: var(--rd-a-primary); color: var(--rd-a-on-primary); }
+.rd-btn--primary:hover { background: var(--rd-a-primary-hover); border-color: var(--rd-a-primary-hover); color: var(--rd-a-on-primary); }
+.rd-btn--outline { background: var(--rd-a-surface); color: var(--rd-a-primary); border-color: var(--rd-a-primary); }
+.rd-btn--outline:hover { background: var(--rd-a-surface-2); border-color: var(--rd-a-primary); color: var(--rd-a-primary); }
+.rd-btn--delete { color: var(--rd-a-danger); }
+.rd-btn--delete:hover { background: var(--rd-a-danger-bg); border-color: var(--rd-a-danger); color: var(--rd-a-danger); }
+.rd-btn--sm { padding: 0.35rem 0.75rem; font-size: 0.8rem; }
+/* ─── Table ────────────────────────────────────────────────────────────── */
+.rd-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.rd-table th { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 2px solid var(--rd-a-border); color: var(--rd-a-text-muted); font-weight: 600; }
+.rd-table td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--rd-a-border); vertical-align: middle; }
+.rd-table tbody tr { transition: background-color .18s ease; }
+.rd-table tbody tr:hover { background-color: var(--rd-a-surface-2); }
+.rd-table code { background: var(--rd-a-surface-2); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.8rem; }
+.rd-table-actions { display: flex; gap: 0.4rem; align-items: center; }
+.rd-table-actions form { margin: 0; }
+.rd-empty { color: var(--rd-a-text-muted); font-size: 0.9rem; }
+/* ─── Badges (status code) ─────────────────────────────────────────────── */
+.rd-badge { display: inline-block; padding: 0.15rem 0.55rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }
+.rd-badge--301 { background: var(--rd-a-info-bg); color: var(--rd-a-info); }
+.rd-badge--302 { background: var(--rd-a-warning-bg); color: var(--rd-a-warning-text); }

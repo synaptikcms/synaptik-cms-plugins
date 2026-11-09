@@ -1,0 +1,54 @@
+/*
+ * Reviews Plugin — Front-end Styles
+ * Loaded only on pages containing [reviews_carousel] or [reviews_grid].
+ * Minimal footprint, variables namespaced (--rv-*) to avoid colliding with
+ * theme CSS.
+ */
+.rv-wrapper {
+    --rv-primary: #2563eb;
+    --rv-border: #e2e8f0;
+    --rv-surface: #ffffff;
+    --rv-text: #1e293b;
+    --rv-text-muted: #64748b;
+    --rv-star: #f59e0b;
+    --rv-star-empty: #e2e8f0;
+    max-width: 100%;
+    margin: 0 0 1.5rem;
+}
+/* ─── Review item (shared between carousel and grid) ───────────────────── */
+.rv-item { background: var(--rv-surface); border: 1px solid var(--rv-border); border-radius: 10px; padding: 1.25rem; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
+.rv-item-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.6rem; }
+.rv-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.rv-avatar--placeholder { display: flex; align-items: center; justify-content: center; background: var(--rv-primary); color: #fff; font-weight: 700; font-size: 1.1rem; }
+.rv-item-meta { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.rv-author { font-weight: 600; color: var(--rv-text); font-size: 0.95rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rv-stars { color: var(--rv-star-empty); font-size: 0.85rem; letter-spacing: 1px; }
+.rv-star--filled { color: var(--rv-star); }
+.rv-text { color: var(--rv-text); font-size: 0.9rem; line-height: 1.5; margin: 0 0 0.6rem; flex: 1; }
+.rv-date { font-size: 0.78rem; color: var(--rv-text-muted); }
+/* ─── Grid layout ────────────────────────────────────────────────────────── */
+.rv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+/* ─── Carousel layout ────────────────────────────────────────────────────── */
+.rv-wrapper--carousel { position: relative; padding: 0 2.75rem; max-width: 1200px; }
+.rv-carousel { overflow: hidden; }
+.rv-track { display: flex; gap: 1rem; transition: transform 0.35s ease; }
+.rv-track .rv-item { flex: 0 0 100%; max-width: 100%; }
+@media (min-width: 640px) {
+  .rv-track .rv-item { flex-basis: calc(50% - 0.5rem); max-width: calc(50% - 0.5rem); }
+}
+@media (min-width: 960px) {
+  .rv-track .rv-item { flex-basis: calc(33% - 0.65rem); max-width: calc(33.333% - 0.667rem); }
+}
+.rv-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 2.25rem; height: 2.25rem; border-radius: 50%; border: 1px solid var(--rv-border); background: var(--rv-surface); color: var(--rv-text); font-size: 1.3rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.rv-nav:hover { background: var(--rv-primary); border-color: var(--rv-primary); color: #fff; }
+.rv-nav--prev { left: 0; }
+.rv-nav--next { right: 0; }
+.rv-nav:disabled { opacity: 0.35; cursor: default; }
+.rv-nav:disabled:hover { background: var(--rv-surface); border-color: var(--rv-border); color: var(--rv-text); }
+.rv-dots { display: flex; justify-content: center; gap: 0.4rem; margin-top: 1rem; }
+.rv-dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--rv-star-empty); cursor: pointer; padding: 0; }
+.rv-dot--active { background: var(--rv-primary); }
+@media (max-width: 480px) {
+  .rv-wrapper--carousel { padding: 0 2.25rem; }
+  .rv-nav { width: 1.9rem; height: 1.9rem; font-size: 1.1rem; }
+}

@@ -1,0 +1,12 @@
+{
+    "synaptik_plugin": true,
+    "name": "Cookie Consent",
+    "slug": "cookie-consent",
+    "version": "1.0.2",
+    "description": "GDPR-friendly cookie consent banner with per-category opt-in (analytics, marketing), stateless customizable UI, and a public JS API so themes and other plugins can defer their tracking scripts until consent is given.",
+    "author": "Synaptik",
+    "author_url": "https://synaptikcms.com/",
+    "info_url": "https://synaptikcms.com/plugin-info/cookie-consent-plugin/",
+    "download_url": "https://synaptikcms.com/files/plugins/cookie-consent-plugin-synaptikcms.zip",
+    "entry": "cookie-consent-init.php"
+}

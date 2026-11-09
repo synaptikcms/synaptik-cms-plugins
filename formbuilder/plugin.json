@@ -1,0 +1,12 @@
+{
+    "synaptik_plugin": true,
+    "name": "Form Builder",
+    "slug": "formbuilder",
+    "version": "1.0.5",
+    "description": "Custom form builder with text, dropdown and checkbox fields. Submissions are saved on the server and emailed as a PDF summary to the site contact address.",
+    "author": "Synaptik",
+    "author_url": "https://synaptikcms.com/",
+    "info_url": "https://synaptikcms.com/plugin-info/form-builder-plugin/",
+    "download_url": "https://synaptikcms.com/files/plugins/formbuilder-plugin-synaptikcms.zip",
+    "entry": "formbuilder-init.php"
+}

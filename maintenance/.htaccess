@@ -1,0 +1,25 @@
+# Synaptik CMS Maintenance Plugin — access control
+# No public entry point at this level — every file here runs via the core's
+# hook system, never a direct URL. Named explicitly rather than a blanket
+# "*.php" — a blanket FilesMatch here would also apply to admin/actions.php
+# (Apache's authz sections cascade into subdirectories and combine with AND,
+# so admin/'s own exemption for actions.php can't override a deny matched
+# up here).
+
+<FilesMatch "^(maintenance-block|maintenance-functions|maintenance-i18n|maintenance-init)\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<FilesMatch "\.json$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>

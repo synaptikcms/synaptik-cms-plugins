@@ -1,0 +1,13 @@
+# Synaptik CMS Form Builder Plugin — admin access control
+# Public entry points: actions.php (standalone POST-only save/delete
+# actions) and download-pdf.php (GET link, its own CSRF query param).
+# admin-page.php and bootstrap.php are only ever include()'d.
+
+<FilesMatch "^(?!(actions|download-pdf)\.php$)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>

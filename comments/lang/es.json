@@ -1,0 +1,16 @@
+{
+    "cm_title_one": "1 comentario",
+    "cm_title_many": "{count} comentarios",
+    "cm_no_comments": "Aún no hay comentarios. Sé el primero en compartir tu opinión.",
+    "cm_reply": "Responder",
+    "cm_cancel_reply": "Cancelar",
+    "cm_field_name": "Nombre",
+    "cm_field_email": "Correo electrónico",
+    "cm_field_content": "Comentario",
+    "cm_submit": "Publicar comentario",
+    "cm_sending": "Enviando…",
+    "cm_error_generic": "Se produjo un error. Inténtalo de nuevo.",
+    "cm_error_validation": "Por favor, completa todos los campos.",
+    "cm_error_rate": "Demasiados comentarios enviados. Inténtalo de nuevo más tarde.",
+    "cm_pending_notice": "Gracias — tu comentario está pendiente de moderación."
+}

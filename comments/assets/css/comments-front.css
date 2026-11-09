@@ -1,0 +1,40 @@
+/*
+ * Comments Plugin — Front-end Styles
+ * Deliberately minimal and theme-agnostic: no assumption about a theme's
+ * color palette or font stack beyond `currentColor`/`inherit`, since this
+ * ships across every theme (axion, atrium, darkish, etc.) rather than a
+ * single one. Themes can override any .cm-* class in their own style.css.
+ */
+ .cm-comments { margin-top: 2.5rem; }
+.cm-title { font-size: 1.25rem; margin: 0 0 1.25rem; }
+.cm-empty { opacity: 0.7; font-size: 0.9rem; }
+/* ─── Comment list ─────────────────────────────────────────────────────── */
+.cm-list, .cm-replies { list-style: none; margin: 0; padding: 0; }
+.cm-comment { padding: 1rem 0; border-bottom: 1px solid rgba(128, 128, 128, 0.2); }
+.cm-replies { margin-top: 0.75rem; margin-left: 1.5rem; padding-left: 1rem; border-left: 2px solid rgba(128, 128, 128, 0.15); }
+.cm-comment--reply { border-bottom: none; padding: 0.75rem 0; }
+.cm-comment-header { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+.cm-comment-author { font-weight: 600; }
+.cm-comment-date { font-size: 0.8rem; opacity: 0.6; }
+.cm-comment-body { line-height: 1.6; word-wrap: break-word; }
+.cm-comment-actions { margin-top: 0.4rem; }
+.cm-reply-toggle { background: none; border: none; padding: 0; font-size: 0.8rem; font-weight: 600; cursor: pointer; color: inherit; opacity: 0.7; text-decoration: underline; }
+.cm-reply-toggle:hover { opacity: 1; }
+/* ─── Forms ────────────────────────────────────────────────────────────── */
+.cm-form { margin-top: 1.5rem; max-width: 640px; }
+.cm-reply-form { margin-top: 0.75rem; margin-left: 0; }
+.cm-field-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.cm-field-row .cm-field { flex: 1 1 200px; }
+.cm-field { margin-bottom: 0.9rem; }
+.cm-field label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.3rem; }
+.cm-field input, .cm-field textarea { width: 100%; box-sizing: border-box; padding: 0.55rem 0.7rem; border: 1px solid rgba(128, 128, 128, 0.35); border-radius: 6px; font-size: 0.9rem; font-family: inherit; color: inherit; background: transparent; }
+.cm-field textarea { resize: vertical; }
+.cm-form-actions { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.5rem; }
+.cm-submit { padding: 0.6rem 1.4rem; border-radius: 6px; border: none; background: #2563eb; color: #fff; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
+.cm-submit:disabled { opacity: 0.6; cursor: default; }
+.cm-cancel-reply { background: none; border: none; padding: 0; font-size: 0.85rem; text-decoration: underline; cursor: pointer; color: inherit; opacity: 0.7; }
+.cm-message { margin-top: 0.75rem; font-size: 0.85rem; padding: 0.6rem 0.8rem; border-radius: 6px; }
+.cm-message--success { background: rgba(22, 163, 74, 0.12); color: #16a34a; }
+.cm-message--error { background: rgba(220, 38, 38, 0.12); color: #dc2626; }
+/* Honeypot field — hidden from real users, left reachable to bots that * ignore CSS (display:none is sometimes filtered out by bot form-fillers, * so this uses off-screen positioning instead). */
+.cm-honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
