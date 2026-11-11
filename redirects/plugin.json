@@ -3,6 +3,8 @@
     "name": "Redirects",
     "slug": "redirects",
     "version": "1.0.2",
+    "icon": "<path d=\"M17 2l4 4-4 4\"/><path d=\"M3 11v-1a4 4 0 0 1 4-4h14\"/><path d=\"M7 22l-4-4 4-4\"/><path d=\"M21 13v1a4 4 0 0 1-4 4H3\"/>",
+    "color": "#6ee7b7",
     "description": "Manual 301/302 URL redirects, plus an optional 404-to-home fallback.",
     "author": "Synaptik",
     "author_url": "https://synaptikcms.com/",

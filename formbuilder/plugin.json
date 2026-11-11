@@ -3,6 +3,8 @@
     "name": "Form Builder",
     "slug": "formbuilder",
     "version": "1.0.5",
+    "icon": "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/><path d=\"M7 8h10\"/><path d=\"M7 12h10\"/><path d=\"M7 16h6\"/>",
+    "color": "#c4b5fd",
     "description": "Custom form builder with text, dropdown and checkbox fields. Submissions are saved on the server and emailed as a PDF summary to the site contact address.",
     "author": "Synaptik",
     "author_url": "https://synaptikcms.com/",

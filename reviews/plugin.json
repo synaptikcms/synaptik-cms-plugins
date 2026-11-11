@@ -3,6 +3,8 @@
     "name": "Reviews",
     "slug": "reviews",
     "version": "1.0.5",
+    "icon": "<path d=\"M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/>",
+    "color": "#fda4af",
     "description": "Customer reviews with a manual admin-managed list, displayed as a carousel or grid via shortcode.",
     "author": "Synaptik",
     "author_url": "https://synaptikcms.com/",

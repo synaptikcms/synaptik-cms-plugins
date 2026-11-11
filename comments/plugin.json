@@ -3,6 +3,8 @@
     "name": "Comments",
     "slug": "comments",
     "version": "1.0.2",
+    "icon": "<path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/>",
+    "color": "#7dd3fc",
     "description": "Native comments for articles, pages, and projects, with moderation, one-level replies, and spam protection.",
     "author": "Synaptik",
     "author_url": "https://synaptikcms.com/",

@@ -3,6 +3,8 @@
     "name": "Analytics",
     "slug": "analytics",
     "version": "1.0.5",
+    "icon": "<line x1=\"18\" y1=\"20\" x2=\"18\" y2=\"10\"/><line x1=\"12\" y1=\"20\" x2=\"12\" y2=\"4\"/><line x1=\"6\" y1=\"20\" x2=\"6\" y2=\"14\"/>",
+    "color": "#86efac",
     "description": "Lightweight server-side analytics: page views, unique visitors, referrer URLs, traffic sources, device breakdown, and country geolocation — no external scripts, no cookies, GDPR-friendly.",
     "author": "Synaptik",
     "author_url": "https://synaptikcms.com/",
