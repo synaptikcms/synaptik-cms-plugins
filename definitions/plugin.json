@@ -1,0 +1,14 @@
+{
+    "synaptik_plugin": true,
+    "name": "Definitions",
+    "slug": "definitions",
+    "version": "1.0.0",
+    "icon": "<path d=\"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z\"/><path d=\"M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z\"/>",
+    "color": "#f0abfc",
+    "description": "Underlines glossary terms (and their variants) in your content and shows the definition on hover, tap, or focus, with occurrence limits and an option to skip headings.",
+    "author": "Synaptik",
+    "author_url": "https://synaptikcms.com/",
+    "info_url": "https://synaptikcms.com/plugin-info/definitions-plugin/",
+    "download_url": "https://synaptikcms.com/files/plugins/definitions-plugin-synaptikcms.zip",
+    "entry": "definitions-init.php"
+}

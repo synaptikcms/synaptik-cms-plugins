@@ -2,6 +2,10 @@
 
 Edit images straight from the file manager, without leaving the admin.
 
+## Requirements
+
+Synaptik CMS **1.4.8 or later**. Earlier versions do not let plugins add scripts and actions to the file manager, so the plugin installs and activates but the Edit image button never appears.
+
 ## What it does
 
 An **Edit image** button appears in the file manager for JPG, PNG, WebP and GIF files. It opens a full-screen editor with these tools:

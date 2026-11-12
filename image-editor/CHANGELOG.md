@@ -1,5 +1,11 @@
 # Image Editor Plugin — Changelog
 
+## [1.0.1] — 2026-11-11
+
+### Changed
+
+- **Requires CMS 1.4.8** - The description and README now state that the plugin needs Synaptik CMS 1.4.8 or later, as earlier versions never show the Edit image button.
+
 ## [1.0.0] — 2026-11-11
 
 ### Added
